@@ -16,7 +16,8 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-8 md:px-24 pt-32 pb-12 overflow-hidden z-10"
+      style={{ position: "relative" }}
+      className="min-h-screen flex flex-col md:flex-row items-center justify-between px-8 md:px-24 pt-32 pb-12 overflow-hidden z-10"
     >
       {/* Left Content: Editorial Typography */}
       <motion.div 

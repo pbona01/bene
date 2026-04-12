@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
-import { ArrowUpRight, Github, Twitter, Linkedin, Instagram } from "lucide-react";
+import { ArrowUpRight, Github, X, Linkedin, Instagram } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
-    { name: "Twitter", icon: <Twitter size={18} />, url: "#" },
+    { name: "X", icon: <X size={18} />, url: "https://x.com/BonaPeter169777" },
     { name: "LinkedIn", icon: <Linkedin size={18} />, url: "#" },
     { name: "Instagram", icon: <Instagram size={18} />, url: "#" },
     { name: "Github", icon: <Github size={18} />, url: "#" },
@@ -26,7 +26,7 @@ export default function Footer() {
               Ready To <br /> Create?
             </h2>
             <p className="mt-6 text-base text-white/40 max-w-sm leading-relaxed">
-              I'm always open to new projects and collaborations. 
+              We're always open to new projects and collaborations. 
               Let's build something extraordinary together.
             </p>
           </motion.div>
@@ -38,9 +38,9 @@ export default function Footer() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-2xl md:text-4xl font-bold text-white hover:text-accent-purple transition-colors flex items-center gap-3 group"
+              className="text-xl sm:text-2xl md:text-4xl font-bold text-white hover:text-accent-purple transition-colors flex items-center gap-2 md:gap-3 group break-all"
             >
-              pbona717@gmail.com <ArrowUpRight size={32} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              pbona717@gmail.com <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0" />
             </motion.a>
 
             <div className="flex gap-8">

@@ -14,7 +14,7 @@ export default function Navbar() {
         BENE<span className="text-accent-purple">.</span>
       </div>
 
-      <div className="flex gap-4 md:gap-8 items-center glass px-4 md:px-6 py-2 md:py-3 rounded-full">
+      <div className="flex gap-3 sm:gap-4 md:gap-8 items-center glass px-4 md:px-6 py-2 md:py-3 rounded-full">
         {navItems.map((item) => (
           <a
             key={item}
@@ -29,7 +29,7 @@ export default function Navbar() {
 
       <a 
         href="mailto:pbona717@gmail.com"
-        className="px-6 py-2 rounded-full bg-white text-black text-sm font-bold hover:bg-accent-purple hover:text-white transition-all duration-300"
+        className="hidden md:block px-6 py-2 rounded-full bg-white text-black text-sm font-bold hover:bg-accent-purple hover:text-white transition-all duration-300"
       >
         Let's Talk
       </a>
