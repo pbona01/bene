@@ -40,7 +40,7 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-white font-bold text-lg">Peter Bona</h3>
+                <h3 className="text-white font-bold text-lg">Peter Benedict</h3>
                 <p className="text-white/40 text-sm">Founder & CEO</p>
               </div>
             </div>
