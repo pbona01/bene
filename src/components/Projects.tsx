@@ -4,6 +4,10 @@ import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
 const projects = [
   {
+    title: "BENE Automations",
+    url: "https://beneautomations.vercel.app/",
+  },
+  {
     title: "New Dreams",
     url: "https://newdreamss.vercel.app",
   },

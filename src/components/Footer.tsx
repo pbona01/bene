@@ -29,6 +29,21 @@ export default function Footer() {
               We're always open to new projects and collaborations. 
               Let's build something extraordinary together.
             </p>
+
+            <div className="mt-12 flex items-center gap-6">
+              <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-accent-purple/30 shadow-[0_0_20px_rgba(249,115,22,0.15)]">
+                <img 
+                  src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
+                  alt="Founder" 
+                  className="w-full h-full object-cover object-top"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div>
+                <h3 className="text-white font-bold text-lg">Peter Bona</h3>
+                <p className="text-white/40 text-sm">Founder & CEO</p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="flex flex-col gap-8 md:items-end">
