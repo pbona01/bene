@@ -37,6 +37,8 @@ export default function Footer() {
                   <img 
                     src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
                     alt="Peter Benedict" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
@@ -53,6 +55,8 @@ export default function Footer() {
                   <img 
                     src="https://i.postimg.cc/DyHrpbH7/IMG-20260414-WA0043.jpg" 
                     alt="Co-Founder" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
@@ -65,19 +69,57 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          <div className="flex flex-col gap-8 md:items-end">
-            <motion.a
-              href="mailto:pbona717@gmail.com"
+          <div className="flex flex-col gap-8 md:items-end w-full md:w-auto">
+            <motion.form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get('name');
+                const business = formData.get('business');
+                const message = formData.get('message');
+                
+                const subject = encodeURIComponent(`New Lead from ${name} (${business})`);
+                const body = encodeURIComponent(`Name: ${name}\nBusiness: ${business}\n\nMessage:\n${message}`);
+                
+                window.location.href = `mailto:pbona717@gmail.com?subject=${subject}&body=${body}`;
+              }}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-xl sm:text-2xl md:text-4xl font-bold text-white hover:text-accent-purple transition-colors flex items-center gap-2 md:gap-3 group break-all"
+              className="w-full md:w-[400px] flex flex-col gap-4 glass p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl"
             >
-              pbona717@gmail.com <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0" />
-            </motion.a>
+              <h3 className="text-xl font-bold text-white mb-2">Start a Project</h3>
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="Your Name" 
+                required 
+                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple transition-all" 
+              />
+              <input 
+                type="text" 
+                name="business" 
+                placeholder="Business Name" 
+                required 
+                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple transition-all" 
+              />
+              <textarea 
+                name="message" 
+                placeholder="Project details..." 
+                required 
+                rows={3} 
+                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-accent-purple focus:ring-1 focus:ring-accent-purple transition-all resize-none" 
+              />
+              <button 
+                type="submit" 
+                className="w-full bg-white text-black hover:bg-accent-purple hover:text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group mt-2"
+              >
+                Send Inquiry <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </button>
+            </motion.form>
 
-            <div className="flex gap-8">
+            <div className="flex gap-6 md:gap-8 mt-4">
               {socialLinks.map((link, i) => (
                 <motion.a
                   key={link.name}
@@ -107,7 +149,7 @@ export default function Footer() {
       </div>
 
       {/* Background Glow */}
-      <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-accent-purple/10 blur-[120px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-accent-purple/10 blur-[120px] pointer-events-none" />
     </footer>
   );
 }

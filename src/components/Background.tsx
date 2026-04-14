@@ -17,7 +17,7 @@ export default function Background() {
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
       {/* Animated Gradients */}
       <motion.div
-        className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-accent-purple/10 blur-[120px] transform-gpu will-change-transform"
+        className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-accent-purple/10 blur-[120px]"
         animate={{
           x: [0, 50, 0],
           y: [0, 30, 0],
@@ -30,7 +30,7 @@ export default function Background() {
         }}
       />
       <motion.div
-        className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] rounded-full bg-accent-cyan/10 blur-[120px] transform-gpu will-change-transform"
+        className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] rounded-full bg-accent-cyan/10 blur-[120px]"
         animate={{
           x: [0, -50, 0],
           y: [0, -30, 0],
@@ -48,31 +48,31 @@ export default function Background() {
       {/* Background Layer (Slowest, smallest, lowest opacity) */}
       <motion.div
         style={{ y: yBg, rotate: rotate1 }}
-        className="absolute top-[15%] left-[20%] w-16 h-16 border border-white/5 rounded-full backdrop-blur-sm opacity-30 transform-gpu will-change-transform"
+        className="absolute top-[15%] left-[20%] w-16 h-16 border border-white/5 rounded-full backdrop-blur-sm opacity-30"
       />
       <motion.div
         style={{ y: yBg, rotate: rotate2 }}
-        className="absolute bottom-[40%] right-[10%] w-24 h-24 border border-white/5 rounded-xl backdrop-blur-sm opacity-30 transform-gpu will-change-transform"
+        className="absolute bottom-[40%] right-[10%] w-24 h-24 border border-white/5 rounded-xl backdrop-blur-sm opacity-30"
       />
 
       {/* Midground Layer */}
       <motion.div
         style={{ y: yMid, rotate: rotate1 }}
-        className="absolute top-[20%] right-[15%] w-32 h-32 border border-white/10 rounded-2xl rotate-12 backdrop-blur-md opacity-50 transform-gpu will-change-transform"
+        className="absolute top-[20%] right-[15%] w-32 h-32 border border-white/10 rounded-2xl rotate-12 backdrop-blur-md opacity-50"
       />
       <motion.div
         style={{ y: yMid, rotate: rotate3 }}
-        className="absolute top-[60%] left-[5%] w-20 h-20 border border-white/10 rounded-full backdrop-blur-md opacity-50 transform-gpu will-change-transform"
+        className="absolute top-[60%] left-[5%] w-20 h-20 border border-white/10 rounded-full backdrop-blur-md opacity-50"
       />
 
       {/* Foreground Layer (Fastest, largest, highest opacity) */}
       <motion.div
         style={{ y: yFg, rotate: rotate2 }}
-        className="absolute bottom-[10%] left-[15%] w-48 h-48 border border-white/10 rounded-full backdrop-blur-lg opacity-70 transform-gpu will-change-transform"
+        className="absolute bottom-[10%] left-[15%] w-48 h-48 border border-white/10 rounded-full backdrop-blur-lg opacity-70"
       />
       <motion.div
         style={{ y: yExtreme, rotate: rotate1 }}
-        className="absolute top-[80%] right-[25%] w-64 h-64 border border-white/10 rounded-3xl backdrop-blur-xl opacity-80 transform-gpu will-change-transform"
+        className="absolute top-[80%] right-[25%] w-64 h-64 border border-white/10 rounded-3xl backdrop-blur-xl opacity-80"
       />
       
       {/* Spotlight Effect (Static base, dynamic in Hero) */}

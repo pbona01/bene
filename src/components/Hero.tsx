@@ -93,11 +93,12 @@ export default function Hero() {
           
           {/* Live Iframe */}
           <div className="absolute inset-0 pt-10">
-            <iframe 
-              src="https://newdreamss.vercel.app" 
-              loading="lazy"
-              className="w-full h-full border-none opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none md:pointer-events-auto transform-gpu"
-              title="New Dreams Preview"
+            <img 
+              src="https://i.postimg.cc/MpZzkYT1/20260414-213238.jpg" 
+              alt="New Dreams Preview"
+              loading="eager"
+              decoding="async"
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 transform-gpu"
             />
           </div>
           
