@@ -83,7 +83,8 @@ function ProjectCard({ project }: { project: { title: string; url: string } }) {
         <div className="absolute inset-0 bg-black">
           <iframe
             src={project.url}
-            className="w-full h-full border-none opacity-100 md:opacity-70 md:group-hover:opacity-100 scale-105 md:scale-100 md:group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-none md:pointer-events-auto origin-center"
+            loading="lazy"
+            className="w-full h-full border-none opacity-100 md:opacity-70 md:group-hover:opacity-100 scale-105 md:scale-100 md:group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-none md:pointer-events-auto origin-center transform-gpu"
             title={project.title}
           />
         </div>

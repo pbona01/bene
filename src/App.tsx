@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 import { motion, useScroll, useSpring } from "motion/react";
 
 import Background from "./components/Background";
@@ -17,30 +14,6 @@ export default function App() {
     damping: 30,
     restDelta: 0.001
   });
-
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
 
   return (
     <main className="relative min-h-screen bg-background selection:bg-accent-purple selection:text-white">

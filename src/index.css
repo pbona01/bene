@@ -20,12 +20,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-image: url("https://grainy-gradients.vercel.app/noise.svg");
     opacity: 0.08;
     pointer-events: none;
     z-index: 9999;
+    transform: translateZ(0);
+    will-change: transform;
   }
 }
 

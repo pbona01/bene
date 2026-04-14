@@ -95,7 +95,8 @@ export default function Hero() {
           <div className="absolute inset-0 pt-10">
             <iframe 
               src="https://newdreamss.vercel.app" 
-              className="w-full h-full border-none opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none md:pointer-events-auto"
+              loading="lazy"
+              className="w-full h-full border-none opacity-80 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none md:pointer-events-auto transform-gpu"
               title="New Dreams Preview"
             />
           </div>
@@ -105,8 +106,8 @@ export default function Hero() {
         </div>
         
         {/* Decorative Elements */}
-        <div className="absolute -top-8 -right-8 w-32 h-32 bg-accent-purple/20 blur-3xl rounded-full" />
-        <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-accent-cyan/20 blur-3xl rounded-full" />
+        <div className="absolute -top-8 -right-8 w-32 h-32 bg-accent-purple/20 blur-3xl rounded-full transform-gpu will-change-transform" />
+        <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-accent-cyan/20 blur-3xl rounded-full transform-gpu will-change-transform" />
       </motion.div>
 
       {/* Scroll Indicator */}

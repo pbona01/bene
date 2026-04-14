@@ -30,18 +30,37 @@ export default function Footer() {
               Let's build something extraordinary together.
             </p>
 
-            <div className="mt-12 flex items-center gap-6">
-              <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-accent-purple/30 shadow-[0_0_20px_rgba(249,115,22,0.15)]">
-                <img 
-                  src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
-                  alt="Founder" 
-                  className="w-full h-full object-cover object-top"
-                  referrerPolicy="no-referrer"
-                />
+            <div className="mt-12 flex flex-col sm:flex-row gap-8">
+              {/* Founder */}
+              <div className="flex items-center gap-6">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-accent-purple/30 shadow-[0_0_20px_rgba(249,115,22,0.15)] shrink-0">
+                  <img 
+                    src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
+                    alt="Peter Benedict" 
+                    className="w-full h-full object-cover object-top"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg">Peter Benedict</h3>
+                  <p className="text-white/40 text-sm">Founder & CEO</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-white font-bold text-lg">Peter Benedict</h3>
-                <p className="text-white/40 text-sm">Founder & CEO</p>
+
+              {/* Co-Founder */}
+              <div className="flex items-center gap-6">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-accent-purple/30 shadow-[0_0_20px_rgba(249,115,22,0.15)] shrink-0">
+                  <img 
+                    src="https://i.postimg.cc/DyHrpbH7/IMG-20260414-WA0043.jpg" 
+                    alt="Co-Founder" 
+                    className="w-full h-full object-cover object-top"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg">Paul Moses</h3>
+                  <p className="text-white/40 text-sm">Co-Founder</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -88,7 +107,7 @@ export default function Footer() {
       </div>
 
       {/* Background Glow */}
-      <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-accent-purple/10 blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-accent-purple/10 blur-[120px] pointer-events-none transform-gpu will-change-transform" />
     </footer>
   );
 }

@@ -13,7 +13,7 @@ export default function About() {
           className="relative w-full aspect-[4/5] md:aspect-[3/4]"
         >
           {/* Orange Glow Behind */}
-          <div className="absolute inset-0 bg-accent-purple blur-[80px] opacity-30 transform scale-95" />
+          <div className="absolute inset-0 bg-accent-purple blur-[80px] opacity-30 transform scale-95 transform-gpu will-change-transform" />
           
           <img 
             src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
