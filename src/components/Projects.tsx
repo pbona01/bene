@@ -9,19 +9,19 @@ const projects = [
     image: "https://i.postimg.cc/MpZzkYT1/20260414-213238.jpg",
   },
   {
-    title: "BENE Automations",
-    url: "https://beneautomations.vercel.app/",
-    image: "https://picsum.photos/seed/beneauto/1200/1600",
-  },
-  {
-    title: "Capital City",
-    url: "https://capital-city-olive.vercel.app",
-    image: "https://picsum.photos/seed/capitalcity/1200/1600",
-  },
-  {
     title: "UBB Cakes",
     url: "https://ubbcakes.vercel.app",
-    image: "https://picsum.photos/seed/ubbcakes/1200/1600",
+    image: "https://i.postimg.cc/WzNNDrRC/20260415-082747.jpg",
+  },
+  {
+    title: "BENE Automations",
+    url: "https://beneautomations.vercel.app/",
+    image: "https://i.postimg.cc/XqRsHKVz/20260415-082802.jpg",
+  },
+  {
+    title: "CCKIS",
+    url: "https://capital-city-olive.vercel.app",
+    image: "https://i.postimg.cc/Tw7b3TF1/20260415-084058.jpg",
   },
 ];
 
@@ -102,7 +102,8 @@ export default function Projects() {
         <div 
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex gap-6 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-8"
+          className="flex gap-6 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-proximity pb-8 scroll-smooth"
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
@@ -134,19 +135,17 @@ function ProjectCard({ project }: { project: { title: string; url: string; image
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="relative w-[80vw] md:w-[450px] lg:w-[500px] flex-shrink-0 snap-center flex items-center justify-center group"
+      className="relative h-[60vh] md:h-[70vh] max-h-[600px] flex-shrink-0 snap-center group"
     >
-      <div className="relative w-full glass rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(249,115,22,0.05)] transition-all duration-700">
+      <div className="relative h-full w-fit max-w-[85vw] mx-auto glass rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(249,115,22,0.05)] transition-all duration-700 bg-[#0a0a0a]">
         {/* Project Image */}
-        <div className="relative w-full bg-black">
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-auto object-cover opacity-100 md:opacity-80 md:group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-          />
-        </div>
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-auto object-contain opacity-100 md:opacity-80 md:group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        />
 
         {/* Mobile Click Overlay */}
         <a href={project.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20 md:hidden" />
