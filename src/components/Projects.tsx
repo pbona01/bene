@@ -10,6 +10,12 @@ const projects = [
     description: "Clothing brand Sold over $1000."
   },
   {
+    title: "Elevate Barbershop",
+    url: "https://barber-alpha-bay.vercel.app/",
+    image: "https://api.microlink.io/?url=https://barber-alpha-bay.vercel.app/&screenshot=true&meta=false&embed=screenshot.url&viewport.width=400&viewport.height=850&viewport.isMobile=true",
+    description: "Premium Barbershop — High-end styling and booking."
+  },
+  {
     title: "UBB Cakes",
     url: "https://ubbcakes.vercel.app",
     image: "https://i.postimg.cc/WzNNDrRC/20260415-082747.jpg",
@@ -161,7 +167,7 @@ function ProjectCard({ project, index }: { project: { title: string; url: string
           fetchPriority={index === 0 ? "high" : "auto"}
           decoding="async"
           onLoad={() => setIsLoaded(true)}
-          className={`h-[65vh] md:h-[70vh] max-h-[600px] w-auto object-contain transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`h-[65vh] md:h-[70vh] max-h-[600px] w-auto aspect-[9/19] object-cover object-top transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isLoaded ? "opacity-100 md:opacity-80 md:group-hover:opacity-100" : "opacity-0"
           }`}
         />
