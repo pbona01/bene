@@ -14,10 +14,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase">
               Ready to Grow?
@@ -80,10 +80,10 @@ export default function Footer() {
                 
                 window.location.href = `mailto:hello@benestudio.com.ng?subject=${subject}&body=${body}`;
               }}
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="w-full md:w-[400px] flex flex-col gap-4 glass p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl"
             >
               <h3 className="text-xl font-bold text-white mb-2">Request a Free Demo</h3>
@@ -121,10 +121,10 @@ export default function Footer() {
                 <motion.a
                   key={link.name}
                   href={link.url}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 1.2, delay: 0.4 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="w-12 h-12 rounded-full glass flex items-center justify-center text-white/50 hover:text-white hover:bg-accent-purple transition-all duration-300"
                 >
                   {link.icon}

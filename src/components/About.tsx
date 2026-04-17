@@ -20,7 +20,7 @@ export default function About() {
             initial={{ opacity: 0, x: -40, y: -40 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2, delay: 0.1, type: "spring", bounce: 0.2 }}
+            transition={{ duration: 1.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="absolute top-0 left-0 w-[70%] h-[70%] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20 group cursor-pointer"
           >
             <img 
@@ -42,7 +42,7 @@ export default function About() {
             initial={{ opacity: 0, x: 40, y: 40 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2, delay: 0.3, type: "spring", bounce: 0.2 }}
+            transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="absolute bottom-0 right-0 w-[70%] h-[70%] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-30 group cursor-pointer"
           >
             <img 
@@ -62,10 +62,10 @@ export default function About() {
 
         {/* Right: Content */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col justify-center"
         >
           <span className="text-accent-purple font-mono text-sm tracking-[0.2em] uppercase font-bold">

@@ -12,7 +12,7 @@ const projects = [
   {
     title: "Elevate Barbershop",
     url: "https://barber-alpha-bay.vercel.app/",
-    image: "https://api.microlink.io/?url=https://barber-alpha-bay.vercel.app/&screenshot=true&meta=false&embed=screenshot.url&viewport.width=400&viewport.height=850&viewport.isMobile=true",
+    image: "https://i.postimg.cc/Qt15Z1jP/20260417-203103.jpg",
     description: "Premium Barbershop — High-end styling and booking."
   },
   {
@@ -145,10 +145,10 @@ function ProjectCard({ project, index }: { project: { title: string; url: string
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       className="relative w-full md:w-auto flex-shrink-0 snap-center group flex justify-center"
     >
       <div className="relative w-fit mx-auto glass rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(249,115,22,0.05)] transition-all duration-700 bg-[#0a0a0a]">
@@ -163,12 +163,12 @@ function ProjectCard({ project, index }: { project: { title: string; url: string
         <img
           src={project.image}
           alt={project.title}
-          loading={index === 0 ? "eager" : "lazy"}
-          fetchPriority={index === 0 ? "high" : "auto"}
+          loading={index === 0 || index === 1 ? "eager" : "lazy"}
+          fetchPriority={index === 0 || index === 1 ? "high" : "auto"}
           decoding="async"
           onLoad={() => setIsLoaded(true)}
-          className={`h-[65vh] md:h-[70vh] max-h-[600px] w-auto aspect-[9/19] object-cover object-top transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            isLoaded ? "opacity-100 md:opacity-80 md:group-hover:opacity-100" : "opacity-0"
+          className={`h-[65vh] md:h-[70vh] max-h-[600px] w-auto object-contain transition-all duration-1000 ease-[0.16,1,0.3,1] ${
+            isLoaded ? "opacity-100 md:opacity-80 md:group-hover:opacity-100" : "opacity-0 scale-105"
           }`}
         />
 

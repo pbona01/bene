@@ -33,10 +33,10 @@ function ElegantShape({
                 rotate: rotate,
             }}
             transition={{
-                duration: 2.4,
+                duration: 3,
                 delay,
-                ease: [0.23, 0.86, 0.39, 0.96] as any,
-                opacity: { duration: 1.2 },
+                ease: [0.16, 1, 0.3, 1] as any,
+                opacity: { duration: 1.5 },
             }}
             className={cn("absolute", className)}
         >
@@ -81,14 +81,14 @@ function HeroGeometric({
     title2?: string;
 }) {
     const fadeUpVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 40 },
         visible: (i: number) => ({
             opacity: 1,
             y: 0,
             transition: {
-                duration: 1,
-                delay: 0.5 + i * 0.2,
-                ease: [0.25, 0.4, 0.25, 1] as any,
+                duration: 1.5,
+                delay: 0.4 + i * 0.2,
+                ease: [0.16, 1, 0.3, 1] as any,
             },
         }),
     };
