@@ -187,12 +187,12 @@ function HeroGeometric({
                         animate="visible"
                     >
                         <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-                            We build modern, conversion-driven websites that help service-based businesses scale and stand out online. Book more high-value clients with a website that does the selling for you.
+                            Get a professional website for your barbershop, salon, or local business. <strong>$300 setup. $50/month.</strong> We handle everything from domains to design.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
                             <a href="#contact" className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors shadow-[0_0_30px_rgba(249,115,22,0.3)]">
-                                Book a Strategy Call
+                                Get Your Website
                             </a>
                             <a href="#work" className="px-8 py-4 rounded-full bg-white/5 text-white font-bold hover:bg-white/10 transition-colors border border-white/10">
                                 View Our Work

@@ -7,21 +7,25 @@ const projects = [
     title: "New Dreams",
     url: "https://newdreamss.vercel.app",
     image: "https://i.postimg.cc/MpZzkYT1/20260414-213238.jpg",
+    description: "Clothing brand Sold over $1000."
   },
   {
     title: "UBB Cakes",
     url: "https://ubbcakes.vercel.app",
     image: "https://i.postimg.cc/WzNNDrRC/20260415-082747.jpg",
+    description: "Local Bakery — Increased catering inquiries by 2x."
   },
   {
     title: "BENE Automations",
     url: "https://beneautomations.vercel.app/",
     image: "https://i.postimg.cc/XqRsHKVz/20260415-082802.jpg",
+    description: "B2B Agency — Streamlined automated service requests."
   },
   {
     title: "CCKIS",
     url: "https://capital-city-olive.vercel.app",
     image: "https://i.postimg.cc/Tw7b3TF1/20260415-084058.jpg",
+    description: "School Got Over 100 new students."
   },
 ];
 
@@ -75,10 +79,10 @@ export default function Projects() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6 px-4 md:px-8">
           <div>
             <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">
-              Web Design Portfolio
+              Our Recent Work
             </h2>
             <p className="mt-4 text-white/50 max-w-2xl text-base md:text-lg">
-              Explore our recent custom website builds, high-converting landing pages, and scalable digital ecosystems designed for ambitious brands.
+              See how we've helped local barbershops, restaurants, and salons turn website visitors into regular, paying customers.
             </p>
           </div>
         </div>
@@ -130,7 +134,7 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({ project, index }: { project: { title: string; url: string; image: string }, index: number }) {
+function ProjectCard({ project, index }: { project: { title: string; url: string; image: string; description: string }, index: number }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -166,15 +170,17 @@ function ProjectCard({ project, index }: { project: { title: string; url: string
         <a href={project.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20 md:hidden" />
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none bg-black/20 md:bg-black/0 md:group-hover:bg-black/40 transition-colors duration-700">
-          <div className="pointer-events-auto opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 scale-100 md:scale-95 md:group-hover:scale-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:delay-75">
+        <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none bg-black/30 md:bg-black/0 md:group-hover:bg-black/60 transition-colors duration-700 p-6">
+          <div className="flex flex-col items-center gap-3 text-center pointer-events-auto opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 scale-100 md:scale-95 md:group-hover:scale-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:delay-75">
+            <h3 className="text-white font-bold text-xl md:text-2xl drop-shadow-lg">{project.title}</h3>
+            <p className="text-white/90 text-sm md:text-base max-w-[200px] leading-snug drop-shadow-md">{project.description}</p>
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:bg-accent-purple hover:text-white transition-all shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:scale-105"
+              className="mt-2 flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:bg-accent-purple hover:text-white transition-all shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:scale-105"
             >
-              View full project <ExternalLink size={14} />
+              See live website <ExternalLink size={14} />
             </a>
           </div>
         </div>

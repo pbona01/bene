@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="text-accent-purple font-mono text-sm tracking-[0.4em] uppercase mb-4 block">
-            Global Web Design Agency
+            Websites For Local Businesses
           </span>
           <motion.h1 
             className="text-6xl md:text-[8rem] font-black leading-[0.9] tracking-tighter uppercase text-white"
@@ -42,7 +42,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="block"
             >
-              DRIVE
+              GET MORE
             </motion.span>
             <motion.span
               className="text-gradient block"
@@ -50,23 +50,23 @@ export default function Hero() {
               animate={{ x: [0, 5, -5, 2, -2, 0] }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              REVENUE
+              CUSTOMERS
             </motion.span>
           </motion.h1>
           <p className="mt-8 text-lg md:text-xl text-white/40 max-w-md font-medium leading-relaxed">
-            We architect high-converting digital ecosystems, Shopify stores, and enterprise landing pages for ambitious brands worldwide.
+            Get a professional website for your barbershop, salon, or local business. $300 setup. $50/month. We handle everything.
           </p>
           
           <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-8">
             <a href="mailto:hello@benestudio.com.ng" className="group relative px-8 py-4 rounded-full bg-white text-black font-bold overflow-hidden transition-all duration-300 hover:glow-neon hover:scale-105 inline-block">
               <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
-                Book Discovery Call <ArrowUpRight size={18} />
+                Get Your Website <ArrowUpRight size={18} />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-accent-purple via-accent-indigo to-accent-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
             <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-widest text-white/30">Trusted Globally</span>
-              <span className="text-sm font-bold text-white">Scale Without Borders</span>
+              <span className="text-[10px] uppercase tracking-widest text-white/30">Built for Real Businesses</span>
+              <span className="text-sm font-bold text-white">Full Ongoing Support</span>
             </div>
           </div>
         </motion.div>

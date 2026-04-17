@@ -1,9 +1,9 @@
 import { HeroGeometric } from "./ui/shape-landing-hero"
 
 function DemoHeroGeometric() {
-    return <HeroGeometric badge="BENE Studio"
-            title1 = "Websites That"
-            title2 = "Drive Results" />
+    return <HeroGeometric badge="Websites for Local Businesses"
+            title1 = "Get More"
+            title2 = "Customers" />
 }
 
 export { DemoHeroGeometric }

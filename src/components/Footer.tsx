@@ -20,51 +20,48 @@ export default function Footer() {
             transition={{ duration: 1 }}
           >
             <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase">
-              Get In Touch
+              Ready to Grow?
             </span>
             <h2 className="text-4xl md:text-6xl font-black text-white mt-4 tracking-tighter uppercase leading-none">
-              Ready To <br /> Create?
+              Get Your <br /> Website.
             </h2>
             <p className="mt-6 text-base text-white/40 max-w-sm leading-relaxed">
-              We're always open to new projects and collaborations. 
-              Let's build something extraordinary together.
+              Stop losing customers to outdated websites or no website at all. Let us handle the tech so you can focus on your business.
             </p>
 
-            <div className="mt-12 flex flex-col sm:flex-row gap-8">
-              {/* Founder */}
-              <div className="flex items-center gap-6">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-accent-purple/30 shadow-[0_0_20px_rgba(249,115,22,0.15)] shrink-0">
+            <div className="mt-12 flex items-center gap-5">
+              {/* Overlapping Avatars */}
+              <div className="flex items-center">
+                {/* CEO (Front) */}
+                <div className="relative z-20 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-4 border-[#050505] shadow-[0_0_20px_rgba(249,115,22,0.2)] shrink-0">
                   <img 
                     src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
-                    alt="Peter Benedict" 
+                    alt="Peter Benedict - Founder & CEO" 
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div>
-                  <h3 className="text-white font-bold text-lg">Peter Benedict</h3>
-                  <p className="text-white/40 text-sm">Founder & CEO</p>
+                {/* Co-Founder (Behind) */}
+                <div className="relative z-10 w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-4 border-[#050505] -ml-6 md:-ml-8 shrink-0 opacity-80 hover:opacity-100 hover:z-30 transition-all duration-300">
+                  <img 
+                    src="https://i.postimg.cc/DyHrpbH7/IMG-20260414-WA0043.jpg" 
+                    alt="Paul Moses - Co-Founder" 
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-top"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
               </div>
 
-              {/* Co-Founder */}
-              <div className="flex items-center gap-6">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-accent-purple/30 shadow-[0_0_20px_rgba(249,115,22,0.15)] shrink-0">
-                  <img 
-                    src="https://i.postimg.cc/DyHrpbH7/IMG-20260414-WA0043.jpg" 
-                    alt="Co-Founder" 
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-top"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-lg">Paul Moses</h3>
-                  <p className="text-white/40 text-sm">Co-Founder</p>
-                </div>
+              {/* Combined Info */}
+              <div className="flex flex-col justify-center">
+                <h3 className="text-white font-bold text-base md:text-lg leading-tight">
+                  Peter Benedict <span className="text-white/40 font-normal">& Paul Moses</span>
+                </h3>
+                <p className="text-accent-purple text-xs md:text-sm tracking-widest mt-0.5 md:mt-1 uppercase">Leadership Team</p>
               </div>
             </div>
           </motion.div>
@@ -89,7 +86,7 @@ export default function Footer() {
               transition={{ duration: 1, delay: 0.2 }}
               className="w-full md:w-[400px] flex flex-col gap-4 glass p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl"
             >
-              <h3 className="text-xl font-bold text-white mb-2">Start a Project</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Request a Free Demo</h3>
               <input 
                 type="text" 
                 name="name" 
@@ -115,7 +112,7 @@ export default function Footer() {
                 type="submit" 
                 className="w-full bg-white text-black hover:bg-accent-purple hover:text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group mt-2"
               >
-                Send Inquiry <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                Get Started <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
             </motion.form>
 
