@@ -81,7 +81,7 @@ export default function Footer() {
                 const subject = encodeURIComponent(`New Lead from ${name} (${business})`);
                 const body = encodeURIComponent(`Name: ${name}\nBusiness: ${business}\n\nMessage:\n${message}`);
                 
-                window.location.href = `mailto:pbona717@gmail.com?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:hello@benestudio.com.ng?subject=${subject}&body=${body}`;
               }}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}

@@ -63,16 +63,16 @@ export default function Projects() {
   };
 
   const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = direction === "left" ? -350 : 350;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
+    let nextIndex = direction === "left" ? activeIndex - 1 : activeIndex + 1;
+    if (nextIndex < 0) nextIndex = 0;
+    if (nextIndex >= projects.length) nextIndex = projects.length - 1;
+    scrollTo(nextIndex);
   };
 
   return (
-    <section id="work" className="relative py-16 md:py-32 px-4 md:px-8 z-10 bg-[#030303]">
+    <section id="work" className="relative py-16 md:py-32 z-10 bg-[#030303]">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6 px-4 md:px-8">
           <div>
             <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">
               Web Design Portfolio
@@ -86,7 +86,7 @@ export default function Projects() {
         <div 
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex gap-6 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-proximity pb-8 scroll-smooth"
+          className="flex gap-4 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-8 scroll-smooth px-4 md:px-8"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {projects.map((project, index) => (
@@ -138,8 +138,8 @@ function ProjectCard({ project, index }: { project: { title: string; url: string
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="relative flex-shrink-0 snap-center group px-2 md:px-0"
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className="relative w-full md:w-auto flex-shrink-0 snap-center group flex justify-center"
     >
       <div className="relative w-fit mx-auto glass rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(249,115,22,0.05)] transition-all duration-700 bg-[#0a0a0a]">
         {/* Loading Skeleton */}
@@ -157,7 +157,7 @@ function ProjectCard({ project, index }: { project: { title: string; url: string
           fetchPriority={index === 0 ? "high" : "auto"}
           decoding="async"
           onLoad={() => setIsLoaded(true)}
-          className={`h-[60vh] md:h-[70vh] max-h-[600px] w-auto object-contain transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`h-[65vh] md:h-[70vh] max-h-[600px] w-auto object-contain transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isLoaded ? "opacity-100 md:opacity-80 md:group-hover:opacity-100" : "opacity-0"
           }`}
         />
