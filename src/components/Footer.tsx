@@ -32,22 +32,11 @@ export default function Footer() {
             <div className="mt-12 flex items-center gap-5">
               {/* Overlapping Avatars */}
               <div className="flex items-center">
-                {/* CEO (Front) */}
+                {/* CEO */}
                 <div className="relative z-20 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-4 border-[#050505] shadow-[0_0_20px_rgba(249,115,22,0.2)] shrink-0">
                   <img 
                     src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
-                    alt="Peter Benedict - Founder & CEO" 
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-top"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                {/* Co-Founder (Behind) */}
-                <div className="relative z-10 w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-4 border-[#050505] -ml-6 md:-ml-8 shrink-0 opacity-80 hover:opacity-100 hover:z-30 transition-all duration-300">
-                  <img 
-                    src="https://i.postimg.cc/DyHrpbH7/IMG-20260414-WA0043.jpg" 
-                    alt="Paul Moses - Co-Founder" 
+                    alt="Peter Benedict - Founder" 
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-top"
@@ -59,9 +48,9 @@ export default function Footer() {
               {/* Combined Info */}
               <div className="flex flex-col justify-center">
                 <h3 className="text-white font-bold text-base md:text-lg leading-tight">
-                  Peter Benedict <span className="text-white/40 font-normal">& Paul Moses</span>
+                  Peter Benedict
                 </h3>
-                <p className="text-accent-purple text-xs md:text-sm tracking-widest mt-0.5 md:mt-1 uppercase">Leadership Team</p>
+                <p className="text-accent-purple text-xs md:text-sm tracking-widest mt-0.5 md:mt-1 uppercase">Founder</p>
               </div>
             </div>
           </motion.div>

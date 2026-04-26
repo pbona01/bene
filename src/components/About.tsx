@@ -15,35 +15,13 @@ export default function About() {
             className="absolute inset-0 bg-accent-purple blur-[80px] rounded-full" 
           />
           
-          {/* Image 1: Paul (Back / Top Left) */}
+          {/* Image: Peter */}
           <motion.div 
-            initial={{ opacity: 0, x: -40, y: -40 }}
+            initial={{ opacity: 0, x: -20, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-0 left-0 w-[70%] h-[70%] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20 group cursor-pointer"
-          >
-            <img 
-              src="https://i.postimg.cc/DyHrpbH7/IMG-20260414-WA0043.jpg" 
-              alt="Paul Moses - Co-Founder" 
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute bottom-6 left-6 glass px-5 py-2.5 rounded-full shadow-lg border border-white/10 flex flex-col">
-              <p className="text-sm sm:text-base font-bold text-white tracking-wide">Paul Moses</p>
-              <p className="text-[10px] text-white/50 uppercase tracking-wider mt-0.5">CO-FOUNDER</p>
-            </div>
-          </motion.div>
-
-          {/* Image 2: Peter (Front / Bottom Right) */}
-          <motion.div 
-            initial={{ opacity: 0, x: 40, y: 40 }}
-            whileInView={{ opacity: 1, x: 0, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-0 right-0 w-[70%] h-[70%] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-30 group cursor-pointer"
+            className="absolute inset-4 rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-30 group cursor-pointer"
           >
             <img 
               src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg" 
@@ -55,7 +33,7 @@ export default function About() {
             />
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 glass px-6 py-2.5 rounded-full shadow-lg border border-white/10 text-center flex flex-col items-center">
               <p className="text-sm sm:text-base font-bold text-white tracking-wide">Peter Benedict</p>
-              <p className="text-[10px] text-white/50 uppercase tracking-wider mt-0.5">CEO</p>
+              <p className="text-[10px] text-white/50 uppercase tracking-wider mt-0.5">FOUNDER</p>
             </div>
           </motion.div>
         </div>
@@ -75,7 +53,7 @@ export default function About() {
             Your Website, <br /><span className="text-accent-purple">Done For You.</span>
           </h2>
           <p className="mt-8 text-lg md:text-xl text-white/70 max-w-lg leading-relaxed">
-            We are Peter and Paul. We know running a business is hard enough without worrying about tech. For a <strong>$300 one-time setup</strong> and <strong>$50/month</strong>, we build your site, host it securely, and provide ongoing support. No hidden fees. No technical stress.
+            I am Peter Benedict. I know running a business is hard enough without worrying about tech. For a <strong>$300 one-time setup</strong> and <strong>$50/month</strong>, I build your site, host it securely, and provide ongoing support. No hidden fees. No technical stress.
           </p>
           
           <ul className="mt-6 flex flex-col gap-3">
