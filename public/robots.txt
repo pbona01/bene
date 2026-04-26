@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://benestudio.com.ng/sitemap.xml

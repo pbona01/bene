@@ -22,10 +22,9 @@ export default function App() {
       duration: 1.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
-      gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      // Disable lenis purely on touch to let native momentum scrolling prevent lag
     });
 
     function raf(time: number) {
