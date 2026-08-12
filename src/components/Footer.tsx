@@ -59,7 +59,7 @@ export default function Footer() {
               Have Something <br /> Worth Building?
             </h2>
             <p className="mt-6 text-base text-white/50 max-w-sm leading-relaxed">
-              Tell us about your business or project. We build and launch custom websites and digital systems within 5–7 days.
+              Tell us about your business or project. We design and build custom websites, digital products and client systems tailored to your goals.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 text-xs uppercase font-mono tracking-wider text-white/50">
@@ -110,20 +110,16 @@ export default function Footer() {
                 className="w-full md:max-w-lg glass p-8 rounded-3xl border border-white/10 shadow-2xl text-left"
               >
                 <span className="text-accent-purple font-mono text-xs uppercase tracking-widest font-bold block mb-2">
-                  5-STAGE STUDIO PROCESS
+                  STUDIO ENGAGEMENT
                 </span>
                 <h3 className="text-2xl font-bold text-white mb-3">
-                  Fill Form & Book a Call
+                  Start Your Project
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed mb-6">
-                  Ready to launch your website or client system? Fill out our inquiry form and pick a time to discuss your goals directly with Peter Benedict.
+                  Ready to launch your website, digital product or client system? Fill out our inquiry form to discuss your goals directly with Peter Benedict.
                 </p>
                 
                 <div className="space-y-3 mb-6 text-xs font-mono text-white/70 bg-black/40 p-4 rounded-xl border border-white/5">
-                  <p className="flex justify-between">
-                    <span className="text-white/40">DELIVERY TIME:</span>
-                    <span className="text-white font-bold">5–7 Days Guaranteed</span>
-                  </p>
                   <p className="flex justify-between">
                     <span className="text-white/40">STUDIO FOCUS:</span>
                     <span className="text-white font-bold">Websites & Client Systems</span>
@@ -132,13 +128,17 @@ export default function Footer() {
                     <span className="text-white/40">DIRECT LEAD:</span>
                     <span className="text-white font-bold">Peter Benedict (Founder)</span>
                   </p>
+                  <p className="flex justify-between">
+                    <span className="text-white/40">TURNAROUND:</span>
+                    <span className="text-white font-bold">Scope-based delivery</span>
+                  </p>
                 </div>
 
                 <Link
                   to="/contact"
                   className="w-full bg-accent-purple text-white hover:bg-accent-indigo font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group text-sm shadow-[0_0_25px_rgba(249,115,22,0.3)]"
                 >
-                  Fill Form & Schedule Discovery Call
+                  Start a Project
                   <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
               </motion.div>
@@ -150,8 +150,8 @@ export default function Footer() {
                 </p>
                 <div className="space-y-2 text-xs font-mono text-white/70">
                   <p>EMAIL: <a href="mailto:hello@benestudio.com.ng" className="text-white underline">hello@benestudio.com.ng</a></p>
-                  <p>AVAILABILITY: Accepting 2 new client projects this month</p>
-                  <p>DELIVERY: Guaranteed 5–7 day project turnaround</p>
+                  <p>AVAILABILITY: Accepting select client projects</p>
+                  <p>DELIVERY: Scope-based turnaround</p>
                 </div>
               </div>
             )}

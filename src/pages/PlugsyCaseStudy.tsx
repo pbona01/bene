@@ -1,26 +1,26 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ExternalLink, ArrowLeft } from "lucide-react";
+import { ArrowUpRight, ExternalLink, ArrowLeft, CheckCircle2 } from "lucide-react";
 import SEO from "../components/SEO";
 
 export default function PlugsyCaseStudy() {
   const caseStudyJsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "Plugsy Case Study",
+    "name": "Plugsy Web Platform Case Study",
     "author": {
       "@type": "Organization",
       "name": "Benestudio"
     },
     "url": "https://benestudio.com.ng/work/plugsy",
-    "description": "Case study of Plugsy web platform designed and developed by Benestudio."
+    "description": "Case study of Plugsy connected web platform designed and developed by Benestudio."
   };
 
   return (
     <>
       <SEO
         title="Plugsy Web Platform Case Study | Benestudio"
-        description="See how Benestudio approached the design and development of Plugsy, a connected web platform for professional identity and commerce."
+        description="See how Benestudio designed and developed Plugsy, a mobile-optimized connected web platform for digital identity and commercial interactions."
         canonical="https://benestudio.com.ng/work/plugsy"
         jsonLd={caseStudyJsonLd}
       />
@@ -31,7 +31,7 @@ export default function PlugsyCaseStudy() {
             to="/work"
             className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white/50 hover:text-white transition-colors mb-8"
           >
-            <ArrowLeft size={14} /> Back to Work
+            <ArrowLeft size={14} /> Back to Selected Work
           </Link>
 
           <motion.div
@@ -45,8 +45,8 @@ export default function PlugsyCaseStudy() {
             <h1 className="text-4xl md:text-7xl font-black text-white mt-4 uppercase tracking-tighter">
               Plugsy
             </h1>
-            <p className="mt-6 text-xl text-white/70 max-w-3xl leading-relaxed font-light">
-              Plugsy is a web platform experience developed around professional identity, portfolios and commercial interactions.
+            <p className="mt-6 text-lg md:text-xl text-white/70 max-w-3xl leading-relaxed font-light">
+              A mobile-optimized web platform unifying professional identity, portfolio showcases, and direct commercial interactions into a singular experience.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 items-center">
@@ -65,63 +65,92 @@ export default function PlugsyCaseStudy() {
           <div className="mt-12 rounded-3xl overflow-hidden glass border border-white/10 aspect-[16/9] relative bg-black/40">
             <img
               src="https://i.postimg.cc/2yKthf58/image.png"
-              alt="Plugsy project interface designed by Benestudio"
+              alt="Plugsy web platform interface designed by Benestudio"
               className="w-full h-full object-cover"
             />
           </div>
 
-          {/* Project Details */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-white/10">
+          {/* Structured Metadata Grid */}
+          <div className="mt-12 glass p-8 rounded-3xl border border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs font-mono">
             <div>
-              <h3 className="text-xs font-mono uppercase tracking-wider text-accent-purple mb-2">Benestudio Role</h3>
-              <p className="text-sm text-white/80 leading-relaxed">
-                UI/UX design, frontend development and web platform implementation.
-              </p>
+              <span className="text-accent-purple font-bold block mb-1">CLIENT / PROJECT</span>
+              <p className="text-white text-sm font-sans font-semibold">Plugsy</p>
             </div>
             <div>
-              <h3 className="text-xs font-mono uppercase tracking-wider text-accent-purple mb-2">Category</h3>
-              <p className="text-sm text-white/80 leading-relaxed">Connected Web Platform</p>
+              <span className="text-accent-purple font-bold block mb-1">INDUSTRY</span>
+              <p className="text-white text-sm font-sans font-semibold">Creator Tech & Professional Identity</p>
             </div>
             <div>
-              <h3 className="text-xs font-mono uppercase tracking-wider text-accent-purple mb-2">Live URL</h3>
-              <a
-                href="https://plugsy.ng/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-white/80 hover:text-white underline"
-              >
-                https://plugsy.ng/
+              <span className="text-accent-purple font-bold block mb-1">WHAT WE BUILT</span>
+              <p className="text-white text-sm font-sans font-semibold">Connected Web Platform & UX System</p>
+            </div>
+            <div>
+              <span className="text-accent-purple font-bold block mb-1">LIVE SITE</span>
+              <a href="https://plugsy.ng/" target="_blank" rel="noopener noreferrer" className="text-white text-sm font-sans font-semibold underline hover:text-accent-purple">
+                plugsy.ng
               </a>
             </div>
           </div>
 
+          {/* Narrative Content */}
           <div className="mt-16 space-y-12 text-white/70 leading-relaxed text-base">
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Project Overview</h2>
+            <section className="glass p-8 md:p-10 rounded-3xl border border-white/10">
+              <span className="text-accent-purple font-mono text-xs font-bold uppercase tracking-wider block mb-2">01. CONTEXT & PROBLEM</span>
+              <h2 className="text-2xl font-bold text-white mb-4">Fragmented Digital Identity Across Scattered Links</h2>
+              <p className="mb-4">
+                Creators, service professionals, and modern founders frequently struggle with fragmented online presence. Work samples, social proof, contact details, and booking links are scattered across separate platforms, resulting in dropped intent when prospective clients attempt to engage.
+              </p>
               <p>
-                Plugsy was built to address the need for a unified digital platform where professionals can curate their identity, display work samples, and support direct commercial or inquiries cleanly.
+                Plugsy needed a unified, mobile-first digital destination where users could present a crisp professional identity and guide visitors toward concrete action.
               </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">The Challenge</h2>
-              <p>
-                Creating an intuitive interface that balances identity showcase with structured action pathways. Users needed to navigate profiles and take action without cognitive friction or layout clutter.
+            <section className="glass p-8 md:p-10 rounded-3xl border border-white/10">
+              <span className="text-accent-purple font-mono text-xs font-bold uppercase tracking-wider block mb-2">02. THE APPROACH</span>
+              <h2 className="text-2xl font-bold text-white mb-4">How Benestudio Solved It</h2>
+              <p className="mb-4">
+                We designed a clean visual framework prioritizing identity clarity, high visual contrast, and immediate access to primary actions.
               </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Key Experience Decisions</h2>
-              <ul className="list-disc list-inside space-y-2 text-white/80">
-                <li>Streamlined visual hierarchy giving prominence to identity credentials and core actions.</li>
-                <li>Mobile-first layout adapted for quick touch interactions on personal devices.</li>
-                <li>High-contrast visual styling designed for readability across various screen lighting conditions.</li>
+              <ul className="space-y-3 text-sm font-sans text-white/80">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-accent-purple shrink-0 mt-0.5" />
+                  <span><strong>Mobile-First Interface Architecture:</strong> Optimized touch layout for effortless navigation on smartphones.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-accent-purple shrink-0 mt-0.5" />
+                  <span><strong>Clear Action Hierarchy:</strong> Primary contact, service details, and work showcases placed above the fold.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-accent-purple shrink-0 mt-0.5" />
+                  <span><strong>Fast Page Loads:</strong> Lightweight frontend code ensuring fast performance under mobile network conditions.</span>
+                </li>
               </ul>
+            </section>
+
+            <section className="glass p-8 md:p-10 rounded-3xl border border-white/10">
+              <span className="text-accent-purple font-mono text-xs font-bold uppercase tracking-wider block mb-2">03. FUNCTIONAL OUTCOME</span>
+              <h2 className="text-2xl font-bold text-white mb-4">Verified Live Platform</h2>
+              <p>
+                Plugsy was successfully launched and deployed live at <a href="https://plugsy.ng/" target="_blank" rel="noopener noreferrer" className="text-white underline font-medium hover:text-accent-purple">plugsy.ng</a>, delivering a central digital anchor that presents user identity with clarity and commercial readiness.
+              </p>
             </section>
           </div>
 
-          {/* Next Project Navigation */}
-          <div className="mt-20 pt-12 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-6">
+          {/* Bottom CTA & Next Project Navigation */}
+          <div className="mt-20 glass p-10 rounded-3xl border border-white/10 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Building a platform or custom web application?</h2>
+            <p className="text-white/60 max-w-md mx-auto mb-8 text-sm">
+              Benestudio designs and builds web experiences tailored to your commercial goals.
+            </p>
+            <Link
+              to="/contact"
+              className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold text-sm tracking-wider hover:bg-accent-indigo transition-colors inline-block uppercase"
+            >
+              Start a Project
+            </Link>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-6">
             <span className="text-xs font-mono uppercase tracking-wider text-white/40">NEXT CASE STUDY</span>
             <Link
               to="/work/ubbcakes"

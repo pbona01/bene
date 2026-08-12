@@ -48,7 +48,7 @@ export default function Navbar() {
         to="/contact"
         className="hidden md:block px-6 py-2 rounded-full bg-white text-black text-sm font-bold hover:bg-accent-purple hover:text-white transition-all duration-300"
       >
-        Let's Talk
+        Start a Project
       </Link>
     </motion.nav>
   );

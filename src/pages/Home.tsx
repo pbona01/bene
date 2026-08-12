@@ -1,30 +1,56 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import SEO from "../components/SEO";
 import { DemoHeroGeometric } from "../components/DemoHero";
 import Projects from "../components/Projects";
 
-const services = [
+const corePillars = [
   {
-    title: "Websites and Digital Experiences",
-    description: "Premium, responsive websites built around clear positioning, strong user experience and measurable business actions."
+    num: "01",
+    title: "WEBSITES",
+    description: "Premium marketing, service, portfolio and commerce experiences engineered for clarity, speed and high conversion.",
+    capabilities: ["Custom UI/UX Interface Design", "Responsive Frontend Engineering", "Brand & Product Positioning", "SEO & Speed Optimization"]
   },
   {
-    title: "E-commerce",
-    description: "Mobile-first shopping experiences designed to make products easier to discover, understand and purchase."
+    num: "02",
+    title: "DIGITAL PRODUCTS",
+    description: "Customer-facing web applications, portals, and interactive platforms built with intuitive user workflows.",
+    capabilities: ["Interactive Portals & Dashboards", "Design Systems & Component Libraries", "Identity & Workspace Layouts", "E-commerce Storefronts"]
   },
   {
-    title: "Web Applications & Portals",
-    description: "Custom web applications and interactive systems that make complex services easier for people to access and use."
+    num: "03",
+    title: "CLIENT SYSTEMS",
+    description: "Structured inquiry qualification, booking calendars, CRM automation and follow-up pipelines behind the website.",
+    capabilities: ["Multi-step Project Qualification Forms", "Consultation Booking Integrations", "CRM & Email Pipeline Connections", "Automated Lead Acknowledgements"]
+  }
+];
+
+const homeFaqs = [
+  {
+    q: "What types of businesses does Benestudio work with?",
+    a: "We partner with ambitious founders, service businesses, commerce brands, digital products, and specialized creative studios (such as residential interior designers) ready to look sharper and operate smarter."
   },
   {
-    title: "Lead and Inquiry Systems",
-    description: "Structured forms, qualification journeys, booking integrations and follow-up connections that create a more organised inquiry process."
+    q: "Can you redesign or upgrade an existing website?",
+    a: "Yes. We frequently take existing websites or outdated templates and transform them into custom, high-performing digital experiences with integrated client qualification systems."
   },
   {
-    title: "Managed Digital Support",
-    description: "Ongoing deployment management, website updates, integration checks and technical support after launch."
+    q: "How long does a typical studio project take?",
+    a: "Turnaround depends on project scope, content readiness, and review speed. Most standard studio websites and client systems are designed, built, and deployed within a focused 1–3 week execution window."
+  },
+  {
+    q: "What is required from us before starting?",
+    a: "We need an understanding of your core business goals, target audience, brand assets (logos, colors, copy), and project priorities. We guide you through the positioning process step-by-step."
+  },
+  {
+    q: "Do you work with clients outside Nigeria?",
+    a: "Yes. Benestudio operates as a remote digital studio and works with clients globally across various time zones."
+  },
+  {
+    q: "Do you provide ongoing technical support after launch?",
+    a: "Yes. We offer Managed Digital Support plans covering domain maintenance, deployment checks, regular updates, and ongoing technical assistance."
   }
 ];
 
@@ -47,6 +73,8 @@ const testimonials = [
 ];
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   const homeJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -54,14 +82,14 @@ export default function Home() {
     "url": "https://benestudio.com.ng/",
     "logo": "https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg",
     "email": "hello@benestudio.com.ng",
-    "description": "Benestudio designs and builds premium websites and client systems for ambitious businesses."
+    "description": "Benestudio designs and builds premium websites, digital products and client systems for ambitious businesses."
   };
 
   return (
     <>
       <SEO
-        title="Benestudio | Premium Websites and Client Systems"
-        description="Benestudio designs and builds premium websites and client systems for ambitious businesses locally and internationally."
+        title="Benestudio | Premium Websites, Digital Products & Client Systems"
+        description="Benestudio designs and builds premium websites, digital products and client systems for ambitious businesses globally."
         canonical="https://benestudio.com.ng/"
         jsonLd={homeJsonLd}
       />
@@ -72,7 +100,7 @@ export default function Home() {
       {/* Horizontal Rounded Projects Showcase */}
       <Projects />
 
-      {/* Services Preview (WHAT WE BUILD) */}
+      {/* Core Positioning Pillars */}
       <section className="relative py-20 md:py-32 px-4 md:px-8 bg-[#030303] border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
@@ -80,41 +108,85 @@ export default function Home() {
               WHAT WE BUILD
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white mt-3 uppercase tracking-tighter">
-              Strategy, design and technology working as one.
+              Websites, Digital Products & Client Systems.
             </h2>
+            <p className="mt-4 text-base md:text-lg text-white/60 max-w-2xl">
+              We design the customer-facing digital experience AND the inquiry systems behind it.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((svc, idx) => (
-              <motion.div
-                key={svc.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: idx * 0.1 }}
-                className="glass p-8 rounded-3xl border border-white/10 hover:border-accent-purple/30 transition-all flex flex-col justify-between"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {corePillars.map((pillar) => (
+              <div
+                key={pillar.title}
+                className="glass p-8 rounded-3xl border border-white/10 hover:border-accent-purple/40 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-3">{svc.title}</h3>
-                  <p className="text-sm text-white/60 leading-relaxed">{svc.description}</p>
+                  <span className="text-accent-purple font-mono text-xs font-bold block mb-2">{pillar.num}</span>
+                  <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{pillar.title}</h3>
+                  <p className="text-sm text-white/60 leading-relaxed mb-6">{pillar.description}</p>
                 </div>
-              </motion.div>
+                <div>
+                  <ul className="space-y-2 text-xs font-mono text-white/70 pt-4 border-t border-white/5">
+                    {pillar.capabilities.map((cap, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <CheckCircle2 size={13} className="text-accent-purple shrink-0" />
+                        <span>{cap}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="mt-12">
+          <div className="mt-12 text-center md:text-left">
             <Link
               to="/services"
               className="inline-flex items-center gap-2 text-sm font-bold text-accent-purple hover:text-white transition-colors"
             >
-              Learn More About Our Services <ArrowUpRight size={16} />
+              Explore Full Studio Capabilities <ArrowUpRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Testimonials (CLIENT EXPERIENCE) */}
-      <section className="relative py-20 md:py-32 px-4 md:px-8 bg-[#030303] border-t border-white/5">
+      {/* How a Client System Works (Interactive Flow) */}
+      <section className="relative py-20 md:py-28 px-4 md:px-8 bg-[#030303] border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase font-bold">
+              THE CLIENT SYSTEM DIFFERENCE
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-white mt-3 uppercase tracking-tighter">
+              From Visitor Attention To Qualified Lead.
+            </h2>
+            <p className="mt-3 text-white/60 text-sm md:text-base max-w-xl">
+              A website should do more than exist. It should guide interest and organize inquiries automatically.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 text-center">
+            {[
+              { step: "01", label: "VISITOR", sub: "Discovers Website" },
+              { step: "02", label: "WEBSITE", sub: "Clear Value Positioning" },
+              { step: "03", label: "INQUIRY", sub: "Guided Form Flow" },
+              { step: "04", label: "QUALIFICATION", sub: "Budget & Scope Fit" },
+              { step: "05", label: "BOOKING", sub: "Calendar Connection" },
+              { step: "06", label: "CRM", sub: "Organized Follow-Up" },
+            ].map((item, idx) => (
+              <div key={idx} className="glass p-5 rounded-2xl border border-white/10 flex flex-col justify-center items-center">
+                <span className="text-accent-purple font-mono text-xs font-bold block mb-1">{item.step}</span>
+                <span className="text-white font-bold text-xs sm:text-sm uppercase tracking-wider block">{item.label}</span>
+                <span className="text-white/40 text-[11px] mt-1">{item.sub}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative py-20 md:py-28 px-4 md:px-8 bg-[#030303] border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16">
             <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase font-bold">
@@ -139,37 +211,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About & Process Preview */}
-      <section className="relative py-20 md:py-32 px-4 md:px-8 bg-[#030303] border-t border-white/5">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
+      {/* FAQ & Objection Handling Section */}
+      <section className="relative py-20 md:py-28 px-4 md:px-8 bg-[#030303] border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-12">
             <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase font-bold">
-              ABOUT BENESTUDIO
+              FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white mt-3 uppercase tracking-tighter">
-              Designing digital experiences with clarity, ambition and care.
+              Everything You Need To Know Before Starting.
             </h2>
-            <p className="mt-6 text-base text-white/60 leading-relaxed">
-              Benestudio is a remote digital design and technology studio helping businesses turn ideas, services and products into polished digital experiences. Every project combines considered design, practical technology and direct communication from planning through launch.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors"
-              >
-                Our 5-Stage Process & About <ArrowUpRight size={18} />
-              </Link>
-            </div>
           </div>
 
-          <div className="aspect-square rounded-3xl overflow-hidden glass border border-white/10 relative">
-            <img
-              src="https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg"
-              alt="Peter Benedict - Founder of Benestudio"
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover"
-            />
+          <div className="space-y-4">
+            {homeFaqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className="glass rounded-2xl border border-white/10 overflow-hidden transition-colors"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full text-left p-6 flex justify-between items-center gap-4 text-white font-bold text-base md:text-lg focus:outline-none"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      size={20}
+                      className={`text-accent-purple transition-transform duration-300 shrink-0 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6 text-sm text-white/60 leading-relaxed border-t border-white/5 pt-4">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -184,20 +265,20 @@ export default function Home() {
             Have Something <br /> Worth Building?
           </h2>
           <p className="mt-6 text-base md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto font-light">
-            Fill out our project inquiry form and book an initial call with us. We will review your goals and guide you through our 5-stage positioning, build, and launch process.
+            Tell us about your business or project. We review every inquiry directly and provide a clear proposal.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="w-full sm:w-auto px-10 py-5 rounded-full bg-accent-purple text-white font-bold text-base hover:bg-accent-indigo transition-all shadow-[0_0_35px_rgba(249,115,22,0.35)] flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto px-10 py-5 rounded-full bg-accent-purple text-white font-bold text-sm tracking-wider hover:bg-accent-indigo transition-all shadow-[0_0_35px_rgba(249,115,22,0.35)] flex items-center justify-center gap-2 group uppercase"
             >
-              Fill Form & Book a Call <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              START A PROJECT <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Link>
             <Link
               to="/work"
-              className="w-full sm:w-auto px-8 py-5 rounded-full bg-white/5 text-white font-bold text-base hover:bg-white/10 transition-colors border border-white/10"
+              className="w-full sm:w-auto px-8 py-5 rounded-full bg-white/5 text-white font-bold text-sm tracking-wider hover:bg-white/10 transition-colors border border-white/10 uppercase"
             >
-              View Selected Work
+              VIEW OUR WORK
             </Link>
           </div>
         </div>

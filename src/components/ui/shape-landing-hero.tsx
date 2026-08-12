@@ -73,7 +73,7 @@ function ElegantShape({
 }
 
 function HeroGeometric({
-    badge,
+    badge = "WEBSITES • DIGITAL PRODUCTS • CLIENT SYSTEMS",
     title1 = "Digital Experiences",
     title2 = "That Move Business",
 }: {
@@ -190,15 +190,15 @@ function HeroGeometric({
                         animate="visible"
                     >
                         <p className="text-sm sm:text-base md:text-lg text-white/60 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-                            Benestudio designs and builds premium websites and client systems for ambitious businesses ready to look sharper, work smarter and turn attention into action.
+                            Benestudio designs and builds premium websites, digital products and client systems for ambitious businesses ready to look sharper, operate smarter and turn attention into action.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                            <Link to="/work" className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors shadow-[0_0_30px_rgba(249,115,22,0.3)]">
-                                View Our Work
+                            <Link to="/work" className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors shadow-[0_0_30px_rgba(249,115,22,0.3)] tracking-wider text-xs sm:text-sm">
+                                VIEW OUR WORK
                             </Link>
-                            <Link to="/contact" className="px-8 py-4 rounded-full bg-white/5 text-white font-bold hover:bg-white/10 transition-colors border border-white/10">
-                                Start a Project
+                            <Link to="/contact" className="px-8 py-4 rounded-full bg-white/5 text-white font-bold hover:bg-white/10 transition-colors border border-white/10 tracking-wider text-xs sm:text-sm">
+                                START A PROJECT
                             </Link>
                         </div>
                     </motion.div>

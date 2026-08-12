@@ -1,68 +1,61 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import SEO from "../components/SEO";
 
-const servicesList = [
+const servicePillars = [
   {
     id: "websites",
-    title: "Websites and Digital Experiences",
-    forWho: "Ambitious businesses looking to establish or elevate their online presence with a bespoke, high-converting web destination.",
-    problemSolved: "Outdated or generic templates that fail to communicate brand value, confuse visitors, or perform poorly on mobile devices.",
+    num: "01",
+    title: "Websites & Digital Experiences",
+    forWho: "Ambitious businesses, creative studios, and companies looking to establish or elevate their online presence with a bespoke, high-converting web destination.",
+    problemSolved: "Generic templates, weak brand positioning, confusing user navigation, or poor mobile performance that hurts prospective client trust.",
     whatsIncluded: [
       "Brand positioning & user journey mapping",
       "Custom UI/UX interface design",
       "Responsive frontend development",
-      "Content structure & copywriting alignment",
+      "Content structure & conversion optimization",
       "Speed optimization & baseline technical SEO"
     ]
   },
   {
-    id: "ecommerce",
-    title: "E-commerce",
-    forWho: "Brands and retailers wanting mobile-first online storefronts that showcase products effectively and simplify purchasing.",
-    problemSolved: "Complex checkout flows, slow image loading, and clunky mobile experiences that cause cart abandonment.",
-    whatsIncluded: [
-      "Mobile-optimized product catalog & collection views",
-      "Streamlined checkout & payment gateway integrations",
-      "Inventory & order management setup",
-      "Product showcase galleries & visual storytelling"
-    ]
-  },
-  {
     id: "products",
-    title: "Web Applications & Portals",
-    forWho: "Founders and tech teams needing custom web platforms, portals, or software interfaces built with clarity.",
-    problemSolved: "Cluttered user interfaces and confusing user workflows that hinder adoption and satisfaction.",
+    num: "02",
+    title: "Digital Products & Web Portals",
+    forWho: "Founders, tech teams, and service providers needing custom web platforms, portals, or software interfaces built with clarity and precision.",
+    problemSolved: "Cluttered user interfaces and confusing user workflows that hinder user adoption and customer satisfaction.",
     whatsIncluded: [
-      "User flows & interactive prototype design",
+      "User flows & interactive interface design",
       "Custom design system & component library",
       "Frontend platform development",
-      "Dashboard & identity management interfaces"
+      "Customer dashboards & identity interfaces",
+      "E-commerce & custom product storefronts"
     ]
   },
   {
-    id: "inquiry-systems",
-    title: "Lead and Inquiry Systems",
-    forWho: "Service businesses, agencies, and studios that need a structured pipeline to capture and qualify client inquiries.",
-    problemSolved: "Unqualified leads, messy email threads, and delayed response times that lead to lost prospective clients.",
+    id: "systems",
+    num: "03",
+    title: "Client & Lead Inquiry Systems",
+    forWho: "Service businesses, agencies, and specialized studios (including interior design studios) that need a structured pipeline to capture and qualify client inquiries.",
+    problemSolved: "Unqualified leads, messy email threads, delayed response times, and lost prospective client opportunities.",
     whatsIncluded: [
-      "Multi-step project qualification forms",
+      "Multi-step project qualification questionnaires",
       "Automated instant email acknowledgements",
-      "CRM pipeline integrations (e.g., HubSpot, Pipedrive)",
+      "CRM pipeline integrations (e.g. HubSpot, Pipedrive)",
       "Consultation booking calendar connections"
     ]
   },
   {
-    id: "managed-support",
+    id: "support",
+    num: "04",
     title: "Managed Digital Support",
-    forWho: "Business owners who want ongoing peace of mind knowing their website and systems are maintained by experts.",
-    problemSolved: "Technical downtime, security vulnerabilities, unapplied updates, and lack of technical support post-launch.",
+    forWho: "Business owners who want ongoing peace of mind knowing their website and client systems are maintained by experts post-launch.",
+    problemSolved: "Technical downtime, unapplied updates, broken links, and lack of dedicated technical assistance.",
     whatsIncluded: [
       "Managed cloud deployment & domain monitoring",
-      "Regular content updates & feature tweaks",
+      "Regular content updates & feature enhancements",
       "Performance and security checks",
-      "Direct technical assistance"
+      "Direct technical support & guidance"
     ]
   }
 ];
@@ -83,8 +76,8 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Web Design, Custom Web Apps and Client Systems | Benestudio"
-        description="Explore Benestudio services across premium websites, e-commerce, web platforms, inquiry systems and ongoing digital support."
+        title="Websites, Digital Products & Client Systems | Benestudio Services"
+        description="Explore Benestudio capabilities across premium websites, custom digital products, client inquiry systems and ongoing digital support."
         canonical="https://benestudio.com.ng/services"
         jsonLd={servicesJsonLd}
       />
@@ -101,15 +94,15 @@ export default function Services() {
               WHAT WE BUILD
             </span>
             <h1 className="text-4xl md:text-7xl font-black text-white mt-4 uppercase tracking-tighter max-w-4xl">
-              Digital services built around how your business needs to work.
+              Websites, Digital Products and Client Systems.
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-3xl leading-relaxed">
-              Benestudio combines strategy, interface design and technology to create websites, products and client systems that are both visually strong and practical to operate.
+            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-3xl leading-relaxed font-light">
+              Benestudio combines strategy, interface design and technology to build websites, products and client systems that look exceptional and operate smoothly.
             </p>
           </motion.div>
 
           <div className="space-y-12">
-            {servicesList.map((svc, idx) => (
+            {servicePillars.map((svc, idx) => (
               <motion.div
                 key={svc.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -120,7 +113,7 @@ export default function Services() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   <div className="lg:col-span-5">
-                    <span className="text-accent-purple font-mono text-xs font-bold block mb-2">0{idx + 1}</span>
+                    <span className="text-accent-purple font-mono text-xs font-bold block mb-2">{svc.num}</span>
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{svc.title}</h2>
                     <div className="space-y-4 text-sm text-white/70">
                       <div>
@@ -136,11 +129,11 @@ export default function Services() {
 
                   <div className="lg:col-span-7 flex flex-col justify-between h-full pt-4 lg:pt-0 lg:pl-8 lg:border-l lg:border-white/10">
                     <div>
-                      <strong className="text-white text-sm font-semibold block mb-3">What may be included:</strong>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-white/70 mb-8">
+                      <strong className="text-white text-sm font-semibold block mb-3">What is included:</strong>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-white/80 mb-8">
                         {svc.whatsIncluded.map((item, i) => (
                           <li key={i} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent-purple shrink-0" />
+                            <CheckCircle2 size={14} className="text-accent-purple shrink-0" />
                             {item}
                           </li>
                         ))}
@@ -150,9 +143,9 @@ export default function Services() {
                     <div>
                       <Link
                         to="/contact"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent-purple text-white font-bold text-sm hover:bg-accent-indigo transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent-purple text-white font-bold text-xs uppercase tracking-wider hover:bg-accent-indigo transition-colors"
                       >
-                        Discuss Your Project <ArrowUpRight size={16} />
+                        Start a Project <ArrowUpRight size={15} />
                       </Link>
                     </div>
                   </div>
@@ -162,15 +155,15 @@ export default function Services() {
           </div>
 
           <div className="mt-20 text-center glass p-12 rounded-3xl border border-white/10">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to elevate your business?</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to elevate your digital presence?</h2>
             <p className="text-white/60 max-w-lg mx-auto mb-8 text-sm">
               Contact Benestudio to discuss your requirements and receive a clear proposal for your project.
             </p>
             <Link
               to="/contact"
-              className="px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-accent-purple hover:text-white transition-all inline-block"
+              className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold text-sm tracking-wider hover:bg-accent-indigo transition-all inline-block uppercase"
             >
-              Start a Conversation
+              Start a Project
             </Link>
           </div>
         </div>

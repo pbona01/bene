@@ -1,26 +1,26 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ExternalLink, ArrowLeft } from "lucide-react";
+import { ArrowUpRight, ExternalLink, ArrowLeft, CheckCircle2 } from "lucide-react";
 import SEO from "../components/SEO";
 
 export default function UBBCakesCaseStudy() {
   const caseStudyJsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "UBBCakes Case Study",
+    "name": "UBBCakes Storefront Case Study",
     "author": {
       "@type": "Organization",
       "name": "Benestudio"
     },
     "url": "https://benestudio.com.ng/work/ubbcakes",
-    "description": "Case study of UBBCakes mobile-first storefront created by Benestudio."
+    "description": "Case study of UBBCakes mobile-first bakery storefront created by Benestudio."
   };
 
   return (
     <>
       <SEO
-        title="UBBCakes Website and Ordering Experience Case Study | Benestudio"
-        description="Explore the mobile-first website experience created by Benestudio for UBBCakes, designed around cake discovery and straightforward ordering."
+        title="UBBCakes Website & Direct Inquiry Experience Case Study | Benestudio"
+        description="Explore how Benestudio built a mobile-first digital storefront for UBBCakes, replacing chat order confusion with visual galleries and direct WhatsApp ordering."
         canonical="https://benestudio.com.ng/work/ubbcakes"
         jsonLd={caseStudyJsonLd}
       />
@@ -31,7 +31,7 @@ export default function UBBCakesCaseStudy() {
             to="/work"
             className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white/50 hover:text-white transition-colors mb-8"
           >
-            <ArrowLeft size={14} /> Back to Work
+            <ArrowLeft size={14} /> Back to Selected Work
           </Link>
 
           <motion.div
@@ -40,13 +40,13 @@ export default function UBBCakesCaseStudy() {
             transition={{ duration: 1 }}
           >
             <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase font-bold">
-              FOOD AND LOCAL COMMERCE
+              FOOD & LOCAL COMMERCE
             </span>
             <h1 className="text-4xl md:text-7xl font-black text-white mt-4 uppercase tracking-tighter">
               UBBCakes
             </h1>
-            <p className="mt-6 text-xl text-white/70 max-w-3xl leading-relaxed font-light">
-              UBBCakes required a polished mobile experience that could present its cake offering clearly and make the path toward ordering simpler.
+            <p className="mt-6 text-lg md:text-xl text-white/70 max-w-3xl leading-relaxed font-light">
+              A mobile-first digital storefront designed to showcase artisanal cake craftsmanship and streamline customer ordering via direct messaging integration.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 items-center">
@@ -65,63 +65,92 @@ export default function UBBCakesCaseStudy() {
           <div className="mt-12 rounded-3xl overflow-hidden glass border border-white/10 aspect-[16/9] relative bg-black/40">
             <img
               src="https://i.postimg.cc/WzNNDrRC/20260415-082747.jpg"
-              alt="UBBCakes storefront designed by Benestudio"
+              alt="UBBCakes storefront interface designed by Benestudio"
               className="w-full h-full object-cover"
             />
           </div>
 
-          {/* Project Details */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-white/10">
+          {/* Structured Metadata Grid */}
+          <div className="mt-12 glass p-8 rounded-3xl border border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs font-mono">
             <div>
-              <h3 className="text-xs font-mono uppercase tracking-wider text-accent-purple mb-2">Benestudio Role</h3>
-              <p className="text-sm text-white/80 leading-relaxed">
-                Website strategy, responsive interface design and frontend implementation.
-              </p>
+              <span className="text-accent-purple font-bold block mb-1">CLIENT / PROJECT</span>
+              <p className="text-white text-sm font-sans font-semibold">UBBCakes</p>
             </div>
             <div>
-              <h3 className="text-xs font-mono uppercase tracking-wider text-accent-purple mb-2">Category</h3>
-              <p className="text-sm text-white/80 leading-relaxed">Food and Local Commerce</p>
+              <span className="text-accent-purple font-bold block mb-1">INDUSTRY</span>
+              <p className="text-white text-sm font-sans font-semibold">Artisanal Food & Local Commerce</p>
             </div>
             <div>
-              <h3 className="text-xs font-mono uppercase tracking-wider text-accent-purple mb-2">Live URL</h3>
-              <a
-                href="https://ubbcakes.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-white/80 hover:text-white underline"
-              >
-                https://ubbcakes.vercel.app/
+              <span className="text-accent-purple font-bold block mb-1">WHAT WE BUILT</span>
+              <p className="text-white text-sm font-sans font-semibold">Mobile Storefront & WhatsApp Order Integration</p>
+            </div>
+            <div>
+              <span className="text-accent-purple font-bold block mb-1">LIVE SITE</span>
+              <a href="https://ubbcakes.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white text-sm font-sans font-semibold underline hover:text-accent-purple">
+                ubbcakes.vercel.app
               </a>
             </div>
           </div>
 
+          {/* Narrative Content */}
           <div className="mt-16 space-y-12 text-white/70 leading-relaxed text-base">
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Project Overview</h2>
+            <section className="glass p-8 md:p-10 rounded-3xl border border-white/10">
+              <span className="text-accent-purple font-mono text-xs font-bold uppercase tracking-wider block mb-2">01. CONTEXT & PROBLEM</span>
+              <h2 className="text-2xl font-bold text-white mb-4">Order Confusion Over Messaging Apps</h2>
+              <p className="mb-4">
+                UBBCakes creates custom celebration cakes. Before the web storefront, customer inquiries arrived via unstructured direct messages—leading to repetitive questions regarding cake sizes, flavor options, pickup dates, and pricing estimates.
+              </p>
               <p>
-                UBBCakes is a premier bakery brand serving custom cakes and catering. Benestudio was tasked with building a web experience that highlights the visual craftsmanship of the products while streamlining customer orders and event inquiries.
+                The bakery needed a clean digital catalog where mobile visitors could browse products easily, understand options, and submit structured orders.
               </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">The Challenge</h2>
-              <p>
-                Most bakery customers browse products on mobile phones. The challenge was ensuring product images loaded fast, catalog categories were easily browseable, and inquiry forms were quick to complete on mobile touchscreens.
+            <section className="glass p-8 md:p-10 rounded-3xl border border-white/10">
+              <span className="text-accent-purple font-mono text-xs font-bold uppercase tracking-wider block mb-2">02. THE APPROACH</span>
+              <h2 className="text-2xl font-bold text-white mb-4">Visual-First Mobile Storefront</h2>
+              <p className="mb-4">
+                Benestudio built a mobile-first digital storefront focused on high-resolution product imagery and intuitive ordering pathways.
               </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Key Experience Decisions</h2>
-              <ul className="list-disc list-inside space-y-2 text-white/80">
-                <li>Visual catalog presentation putting product imagery front and center.</li>
-                <li>Simplified order pathway allowing customers to select cake sizes, flavors, and dates.</li>
-                <li>Fast image optimization ensuring smooth performance over cellular data networks.</li>
+              <ul className="space-y-3 text-sm font-sans text-white/80">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-accent-purple shrink-0 mt-0.5" />
+                  <span><strong>Visual Category Galleries:</strong> Highlighting celebration, birthday, and custom wedding cake categories.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-accent-purple shrink-0 mt-0.5" />
+                  <span><strong>Structured Order Selection:</strong> Guided fields for selecting cake size, flavor profile, and delivery date.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-accent-purple shrink-0 mt-0.5" />
+                  <span><strong>Direct WhatsApp Linkage:</strong> Form submissions automatically format order details and open WhatsApp for instant fulfillment review.</span>
+                </li>
               </ul>
+            </section>
+
+            <section className="glass p-8 md:p-10 rounded-3xl border border-white/10">
+              <span className="text-accent-purple font-mono text-xs font-bold uppercase tracking-wider block mb-2">03. FUNCTIONAL OUTCOME</span>
+              <h2 className="text-2xl font-bold text-white mb-4">Verified Live Storefront</h2>
+              <p>
+                Deployed live at <a href="https://ubbcakes.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white underline font-medium hover:text-accent-purple">ubbcakes.vercel.app</a>, replacing back-and-forth messaging with a clear, self-guided ordering experience.
+              </p>
             </section>
           </div>
 
-          {/* Next Project Navigation */}
-          <div className="mt-20 pt-12 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-6">
+          {/* Bottom CTA & Next Project Navigation */}
+          <div className="mt-20 glass p-10 rounded-3xl border border-white/10 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Need an e-commerce storefront or order system?</h2>
+            <p className="text-white/60 max-w-md mx-auto mb-8 text-sm">
+              Benestudio builds mobile-first storefronts engineered for smooth customer purchasing.
+            </p>
+            <Link
+              to="/contact"
+              className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold text-sm tracking-wider hover:bg-accent-indigo transition-colors inline-block uppercase"
+            >
+              Start a Project
+            </Link>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-6">
             <span className="text-xs font-mono uppercase tracking-wider text-white/40">NEXT CASE STUDY</span>
             <Link
               to="/work/newdreams"

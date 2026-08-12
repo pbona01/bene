@@ -7,26 +7,26 @@ const projects = [
   {
     name: "Plugsy",
     category: "Connected Web Platform",
-    summary: "A connected web platform created to help professionals present their work, manage their digital identity and support commercial interactions in one experience.",
+    summary: "Built for creators, freelancers and service professionals needing a central hub. Benestudio designed and developed a mobile-optimized platform that unifies portfolio showcases, service details, social proof and direct contact options in one location.",
     caseStudyUrl: "/work/plugsy",
     liveUrl: "https://plugsy.ng/",
     image: "https://i.postimg.cc/2yKthf58/image.png"
   },
   {
-    name: "NewDreams",
-    category: "Fashion and E-commerce",
-    summary: "A cinematic streetwear e-commerce experience combining strong visual identity, clear product discovery and a mobile-focused shopping journey.",
-    caseStudyUrl: "/work/newdreams",
-    liveUrl: "https://newdreamss.vercel.app/",
-    image: "https://i.postimg.cc/JnTYCWZQ/image.png"
-  },
-  {
     name: "UBBCakes",
-    category: "Food and Local Commerce",
-    summary: "A premium mobile-first cake storefront designed to make occasion browsing, product discovery and customer ordering clear and straightforward.",
+    category: "Food & Local Commerce",
+    summary: "Built for an artisanal cake studio facing order confusion over messaging apps. Benestudio engineered a mobile-first digital storefront with visual cake galleries, clear flavor options and a direct WhatsApp ordering flow that streamlined customer inquiries.",
     caseStudyUrl: "/work/ubbcakes",
     liveUrl: "https://ubbcakes.vercel.app/",
     image: "https://i.postimg.cc/WzNNDrRC/20260415-082747.jpg"
+  },
+  {
+    name: "NewDreams",
+    category: "Fashion & E-commerce",
+    summary: "Built for a high-concept streetwear brand seeking a distinct digital visual identity. Benestudio developed a cinematic dark-mode e-commerce web storefront with smooth product discovery and responsive collection navigation.",
+    caseStudyUrl: "/work/newdreams",
+    liveUrl: "https://newdreamss.vercel.app/",
+    image: "https://i.postimg.cc/JnTYCWZQ/image.png"
   }
 ];
 
@@ -131,9 +131,9 @@ export default function Work() {
             </p>
             <Link
               to="/contact"
-              className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors inline-block"
+              className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors inline-block uppercase text-sm tracking-wider"
             >
-              Start a Conversation
+              Start a Project
             </Link>
           </div>
         </div>
