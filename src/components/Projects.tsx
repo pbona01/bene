@@ -2,36 +2,21 @@ import { motion } from "motion/react";
 import { useRef, useState } from "react";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 
-const projects = [
+export const projectsData = [
+  {
+    title: "Plugsy",
+    url: "https://plugsy.ng/",
+    image: "https://i.postimg.cc/2yKthf58/image.png",
+  },
   {
     title: "New Dreams",
     url: "https://newdreamss.vercel.app",
-    image: "https://i.postimg.cc/MpZzkYT1/20260414-213238.jpg",
-    description: "Clothing brand Sold over $1000."
-  },
-  {
-    title: "Elevate Barbershop",
-    url: "https://barber-alpha-bay.vercel.app/",
-    image: "https://i.postimg.cc/Qt15Z1jP/20260417-203103.jpg",
-    description: "Premium Barbershop — High-end styling and booking."
+    image: "https://i.postimg.cc/JnTYCWZQ/image.png",
   },
   {
     title: "UBB Cakes",
     url: "https://ubbcakes.vercel.app",
     image: "https://i.postimg.cc/WzNNDrRC/20260415-082747.jpg",
-    description: "Local Bakery — Increased catering inquiries by 2x."
-  },
-  {
-    title: "BENE Automations",
-    url: "https://beneautomations.vercel.app/",
-    image: "https://i.postimg.cc/XqRsHKVz/20260415-082802.jpg",
-    description: "B2B Agency — Streamlined automated service requests."
-  },
-  {
-    title: "CCKIS",
-    url: "https://capital-city-olive.vercel.app",
-    image: "https://i.postimg.cc/Tw7b3TF1/20260415-084058.jpg",
-    description: "School Got Over 100 new students."
   },
 ];
 
@@ -75,122 +60,118 @@ export default function Projects() {
   const scroll = (direction: "left" | "right") => {
     let nextIndex = direction === "left" ? activeIndex - 1 : activeIndex + 1;
     if (nextIndex < 0) nextIndex = 0;
-    if (nextIndex >= projects.length) nextIndex = projects.length - 1;
+    if (nextIndex >= projectsData.length) nextIndex = projectsData.length - 1;
     scrollTo(nextIndex);
   };
 
   return (
-    <section id="work" className="relative py-16 md:py-32 z-10 bg-[#030303]">
+    <section id="work" className="relative py-16 md:py-28 z-10 bg-[#030303] border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-6 px-4 md:px-8">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 md:mb-12 gap-4 px-4 md:px-8">
           <div>
+            <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase font-bold block mb-2">
+              SELECTED WORK
+            </span>
             <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">
-              Our Recent Work
+              Recent Projects
             </h2>
-            <p className="mt-4 text-white/50 max-w-2xl text-base md:text-lg">
-              See how we've helped local barbershops, restaurants, and salons turn website visitors into regular, paying customers.
-            </p>
+          </div>
+          
+          <div className="hidden sm:flex items-center gap-3">
+            <button 
+              onClick={() => scroll("left")}
+              className="w-11 h-11 rounded-full glass border border-white/10 flex items-center justify-center text-white hover:bg-accent-purple hover:border-accent-purple transition-all"
+              aria-label="Previous project"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button 
+              onClick={() => scroll("right")}
+              className="w-11 h-11 rounded-full glass border border-white/10 flex items-center justify-center text-white hover:bg-accent-purple hover:border-accent-purple transition-all"
+              aria-label="Next project"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
 
         <div 
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex gap-4 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-8 scroll-smooth px-4 md:px-8"
+          className="flex gap-5 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth px-4 md:px-8"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+          {projectsData.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
 
-        {/* Pagination & Controls */}
-        <div className="flex justify-center items-center gap-4 md:gap-6 mt-8">
-          <button 
-            onClick={() => scroll("left")}
-            className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-accent-purple hover:text-white transition-colors shrink-0"
-            aria-label="Previous project"
-          >
-            <ChevronLeft size={20} />
-          </button>
-
-          <div className="flex items-center gap-3">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollTo(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  activeIndex === index ? "bg-accent-purple w-8" : "bg-white/20 hover:bg-white/40 w-2.5"
-                }`}
-                aria-label={`Go to project ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          <button 
-            onClick={() => scroll("right")}
-            className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-accent-purple hover:text-white transition-colors shrink-0"
-            aria-label="Next project"
-          >
-            <ChevronRight size={20} />
-          </button>
+        {/* Pagination Dots */}
+        <div className="flex justify-center items-center gap-2.5 mt-6">
+          {projectsData.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                activeIndex === index ? "bg-accent-purple w-8" : "bg-white/20 hover:bg-white/40 w-2"
+              }`}
+              aria-label={`Go to project ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({ project, index }: { project: { title: string; url: string; image: string; description: string }, index: number }) {
+function ProjectCard({ project, index }: { project: { title: string; url: string; image: string }, index: number }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9, y: 40 }}
+      initial={{ opacity: 0, scale: 0.95, y: 30 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative w-full md:w-auto flex-shrink-0 snap-center group flex justify-center"
+      transition={{ duration: 0.8, delay: index * 0.05 }}
+      className="relative flex-shrink-0 snap-center group"
     >
-      <div className="relative w-fit mx-auto glass rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(249,115,22,0.05)] transition-all duration-700 bg-[#0a0a0a]">
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block relative rounded-3xl overflow-hidden glass border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)] hover:border-accent-purple/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.25)] transition-all duration-500 bg-[#0a0a0a]"
+      >
         {/* Loading Skeleton */}
         {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white/5 animate-pulse min-w-[250px]">
+          <div className="absolute inset-0 flex items-center justify-center bg-white/5 animate-pulse min-w-[280px] min-h-[400px]">
             <div className="w-8 h-8 border-2 border-accent-purple border-t-transparent rounded-full animate-spin" />
           </div>
         )}
 
         {/* Project Image */}
-        <img
-          src={project.image}
-          alt={project.title}
-          loading={index === 0 || index === 1 ? "eager" : "lazy"}
-          fetchPriority={index === 0 || index === 1 ? "high" : "auto"}
-          decoding="async"
-          onLoad={() => setIsLoaded(true)}
-          className={`h-[65vh] md:h-[70vh] max-h-[600px] w-auto object-contain transition-all duration-1000 ease-[0.16,1,0.3,1] ${
-            isLoaded ? "opacity-100 md:opacity-80 md:group-hover:opacity-100" : "opacity-0 scale-105"
-          }`}
-        />
+        <div className="relative overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            loading={index <= 2 ? "eager" : "lazy"}
+            decoding="async"
+            onLoad={() => setIsLoaded(true)}
+            className={`h-[55vh] md:h-[65vh] max-h-[560px] w-auto object-contain transition-all duration-700 group-hover:scale-[1.02] ${
+              isLoaded ? "opacity-100" : "opacity-0"
+            }`}
+          />
 
-        {/* Mobile Click Overlay */}
-        <a href={project.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20 md:hidden" />
-
-        {/* Content Overlay */}
-        <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none bg-black/30 md:bg-black/0 md:group-hover:bg-black/60 transition-colors duration-700 p-6">
-          <div className="flex flex-col items-center gap-3 text-center pointer-events-auto opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 scale-100 md:scale-95 md:group-hover:scale-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:delay-75">
-            <h3 className="text-white font-bold text-xl md:text-2xl drop-shadow-lg">{project.title}</h3>
-            <p className="text-white/90 text-sm md:text-base max-w-[200px] leading-snug drop-shadow-md">{project.description}</p>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:bg-accent-purple hover:text-white transition-all shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:scale-105"
-            >
-              See live website <ExternalLink size={14} />
-            </a>
+          {/* Clean Hover / Title Overlay */}
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 pt-12 flex items-center justify-between pointer-events-none">
+            <span className="text-white font-bold text-base md:text-lg tracking-tight drop-shadow-md">
+              {project.title}
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white text-xs font-medium group-hover:bg-accent-purple group-hover:border-accent-purple transition-colors">
+              Visit Live <ExternalLink size={12} />
+            </span>
           </div>
         </div>
-      </div>
+      </a>
     </motion.div>
   );
 }

@@ -1,9 +1,12 @@
-import { HeroGeometric } from "./ui/shape-landing-hero"
+import { HeroGeometric } from "./ui/shape-landing-hero";
 
 function DemoHeroGeometric() {
-    return <HeroGeometric badge="Websites for Local Businesses"
-            title1 = "Get More"
-            title2 = "Customers" />
+    return (
+        <HeroGeometric 
+            title1="Digital Experiences"
+            title2="That Move Business" 
+        />
+    );
 }
 
-export { DemoHeroGeometric }
+export { DemoHeroGeometric };

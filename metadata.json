@@ -1,5 +1,6 @@
 {
-  "name": "Vibecoded Portfolio",
-  "description": "A futuristic, high-performance portfolio for vibecoded web projects featuring 3D backgrounds and smooth animations.",
-  "requestFramePermissions": []
+  "name": "Benestudio",
+  "description": "Benestudio designs and builds premium websites, digital products and client systems for ambitious businesses locally and internationally.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

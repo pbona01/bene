@@ -93,7 +93,7 @@ export default function Hero() {
           {/* Live Iframe */}
           <div className="absolute inset-0 pt-10">
             <img 
-              src="https://i.postimg.cc/MpZzkYT1/20260414-213238.jpg" 
+              src="https://i.postimg.cc/JnTYCWZQ/image.png" 
               alt="New Dreams Preview"
               loading="eager"
               decoding="async"
