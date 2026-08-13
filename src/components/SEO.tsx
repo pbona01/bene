@@ -83,14 +83,11 @@ export default function SEO({
         scriptTag.type = "application/ld+json";
         document.head.appendChild(scriptTag);
       }
-      scriptTag.text = JSON.stringify(jsonLd);
+      scriptTag.text = typeof jsonLd === "string" ? jsonLd : JSON.stringify(jsonLd);
     } else if (scriptTag) {
       scriptTag.remove();
     }
-
-    // Scroll to top on page change
-    window.scrollTo(0, 0);
-  }, [title, description, canonical, ogType, ogImage, jsonLd]);
+  }, [title, description, canonical, ogType, ogImage, JSON.stringify(jsonLd)]);
 
   return null;
 }

@@ -1,9 +1,71 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "../../lib/utils";
+
+function RotatingBadge() {
+    const [index, setIndex] = useState(0);
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+        setPrefersReducedMotion(mediaQuery.matches);
+
+        const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener("change", handleChange);
+        }
+
+        if (mediaQuery.matches) return;
+
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev === 0 ? 1 : 0));
+        }, 3200);
+
+        return () => {
+            clearInterval(interval);
+            if (mediaQuery.removeEventListener) {
+                mediaQuery.removeEventListener("change", handleChange);
+            }
+        };
+    }, []);
+
+    const items = ["WEBSITES", "CLIENT SYSTEMS"];
+
+    if (prefersReducedMotion) {
+        return (
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6 md:mb-8">
+                <Circle className="h-2 w-2 fill-orange-500/80 shrink-0" />
+                <span className="text-xs sm:text-sm text-white/70 tracking-widest font-mono uppercase font-semibold">
+                    WEBSITES + CLIENT SYSTEMS
+                </span>
+            </div>
+        );
+    }
+
+    return (
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6 md:mb-8">
+            <Circle className="h-2 w-2 fill-orange-500/80 shrink-0" />
+            <div className="relative h-5 w-[130px] sm:w-[150px] overflow-hidden flex items-center justify-center">
+                <AnimatePresence mode="wait">
+                    <motion.span
+                        key={index}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                        className="text-xs sm:text-sm text-white/80 tracking-widest font-mono uppercase font-bold whitespace-nowrap block absolute"
+                    >
+                        {items[index]}
+                    </motion.span>
+                </AnimatePresence>
+            </div>
+        </div>
+    );
+}
 
 
 function ElegantShape({
@@ -147,20 +209,14 @@ function HeroGeometric({
 
             <div className="relative z-10 container mx-auto px-4 md:px-6">
                 <div className="max-w-4xl mx-auto text-center">
-                    {badge && (
-                        <motion.div
-                            custom={0}
-                            variants={fadeUpVariants}
-                            initial="hidden"
-                            animate="visible"
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6 md:mb-8"
-                        >
-                            <Circle className="h-2 w-2 fill-orange-500/80" />
-                            <span className="text-xs sm:text-sm text-white/60 tracking-wide font-mono uppercase">
-                                {badge}
-                            </span>
-                        </motion.div>
-                    )}
+                    <motion.div
+                        custom={0}
+                        variants={fadeUpVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <RotatingBadge />
+                    </motion.div>
 
                     <motion.div
                         custom={1}
@@ -189,15 +245,15 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <p className="text-sm sm:text-base md:text-lg text-white/60 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-                            Benestudio designs and builds premium websites, digital products and client systems for ambitious businesses ready to look sharper, operate smarter and turn attention into action.
+                        <p className="text-sm sm:text-base md:text-lg text-white/70 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
+                            Benestudio designs premium websites and client systems that help businesses look credible, capture better enquiries and turn attention into action.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                            <Link to="/work" className="px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors shadow-[0_0_30px_rgba(249,115,22,0.3)] tracking-wider text-xs sm:text-sm">
+                            <Link to="/work" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 text-white font-bold hover:bg-white/10 transition-colors border border-white/10 tracking-wider text-xs sm:text-sm uppercase">
                                 VIEW OUR WORK
                             </Link>
-                            <Link to="/contact" className="px-8 py-4 rounded-full bg-white/5 text-white font-bold hover:bg-white/10 transition-colors border border-white/10 tracking-wider text-xs sm:text-sm">
+                            <Link to="/contact" className="w-full sm:w-auto px-8 py-4 rounded-full bg-accent-purple text-white font-bold hover:bg-accent-indigo transition-colors shadow-[0_0_30px_rgba(249,115,22,0.3)] tracking-wider text-xs sm:text-sm uppercase">
                                 START A PROJECT
                             </Link>
                         </div>

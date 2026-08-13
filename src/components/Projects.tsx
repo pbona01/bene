@@ -1,177 +1,159 @@
-import { motion } from "motion/react";
-import { useRef, useState } from "react";
-import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export const projectsData = [
+export interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  liveUrl: string;
+  caseStudyUrl: string;
+}
+
+export const projectsData: ProjectItem[] = [
   {
+    id: "plugsy",
     title: "Plugsy",
-    url: "https://plugsy.ng/",
+    category: "PLATFORM / WEBSITE",
+    description: "A utility marketplace designed to make finding and accessing everyday digital services easier.",
     image: "https://i.postimg.cc/2yKthf58/image.png",
+    liveUrl: "https://plugsy.ng/",
+    caseStudyUrl: "/work/plugsy",
   },
   {
-    title: "New Dreams",
-    url: "https://newdreamss.vercel.app",
+    id: "newdreams",
+    title: "NewDreams",
+    category: "FASHION / ECOMMERCE",
+    description: "A fashion storefront built around stronger product presentation and a cleaner mobile buying experience.",
     image: "https://i.postimg.cc/JnTYCWZQ/image.png",
+    liveUrl: "https://newdreamss.vercel.app",
+    caseStudyUrl: "/work/newdreams",
   },
   {
+    id: "ubbcakes",
     title: "UBB Cakes",
-    url: "https://ubbcakes.vercel.app",
+    category: "FOOD / COMMERCE",
+    description: "A mobile-first bakery experience designed to make discovering products and starting an order easier.",
     image: "https://i.postimg.cc/WzNNDrRC/20260415-082747.jpg",
+    liveUrl: "https://ubbcakes.vercel.app",
+    caseStudyUrl: "/work/ubbcakes",
   },
 ];
 
 export default function Projects() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleScroll = () => {
-    if (!scrollContainerRef.current) return;
-    const container = scrollContainerRef.current;
-    const scrollPosition = container.scrollLeft + container.clientWidth / 2;
-    
-    let closestIndex = 0;
-    let minDistance = Infinity;
-
-    Array.from(container.children).forEach((child, index) => {
-      const childElement = child as HTMLElement;
-      const childCenter = childElement.offsetLeft + childElement.clientWidth / 2;
-      const distance = Math.abs(childCenter - scrollPosition);
-      
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIndex = index;
-      }
-    });
-
-    setActiveIndex(closestIndex);
-  };
-
-  const scrollTo = (index: number) => {
-    if (!scrollContainerRef.current) return;
-    const child = scrollContainerRef.current.children[index] as HTMLElement;
-    if (child) {
-      scrollContainerRef.current.scrollTo({
-        left: child.offsetLeft - scrollContainerRef.current.offsetLeft,
-        behavior: "smooth"
-      });
-    }
-  };
-
-  const scroll = (direction: "left" | "right") => {
-    let nextIndex = direction === "left" ? activeIndex - 1 : activeIndex + 1;
-    if (nextIndex < 0) nextIndex = 0;
-    if (nextIndex >= projectsData.length) nextIndex = projectsData.length - 1;
-    scrollTo(nextIndex);
-  };
-
   return (
-    <section id="work" className="relative py-16 md:py-28 z-10 bg-[#030303] border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-8 md:mb-12 gap-4 px-4 md:px-8">
-          <div>
-            <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase font-bold block mb-2">
-              SELECTED WORK
-            </span>
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">
-              Recent Projects
-            </h2>
+    <section id="work" className="relative py-16 md:py-28 z-10 bg-[#030303] border-t border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-10 md:mb-14">
+        <span className="text-accent-purple font-mono text-xs tracking-[0.3em] uppercase font-bold block mb-2">
+          SELECTED WORK
+        </span>
+        <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">
+          BUILT FOR REAL BUSINESSES.
+        </h2>
+        <p className="mt-3 text-sm md:text-base text-white/60 max-w-xl font-light">
+          Selected websites we've designed for businesses across technology, fashion, food and commerce.
+        </p>
+      </div>
+
+      {/* Infinite Continuous Work Loop Track */}
+      <div className="relative w-full overflow-x-auto md:overflow-hidden no-scrollbar touch-pan-x py-2">
+        <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]">
+          {/* Primary Set (Accessible) */}
+          <div className="flex gap-6">
+            {projectsData.map((project) => (
+              <ProjectCard key={project.id} project={project} isClone={false} />
+            ))}
           </div>
-          
-          <div className="hidden sm:flex items-center gap-3">
-            <button 
-              onClick={() => scroll("left")}
-              className="w-11 h-11 rounded-full glass border border-white/10 flex items-center justify-center text-white hover:bg-accent-purple hover:border-accent-purple transition-all"
-              aria-label="Previous project"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button 
-              onClick={() => scroll("right")}
-              className="w-11 h-11 rounded-full glass border border-white/10 flex items-center justify-center text-white hover:bg-accent-purple hover:border-accent-purple transition-all"
-              aria-label="Next project"
-            >
-              <ChevronRight size={20} />
-            </button>
+
+          {/* Cloned Set (Visual loop duplicate, hidden from screen readers & keyboard focus) */}
+          <div className="flex gap-6" aria-hidden="true">
+            {projectsData.map((project) => (
+              <ProjectCard key={`clone-${project.id}`} project={project} isClone={true} />
+            ))}
           </div>
         </div>
+      </div>
 
-        <div 
-          ref={scrollContainerRef}
-          onScroll={handleScroll}
-          className="flex gap-5 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-6 scroll-smooth px-4 md:px-8"
-          style={{ WebkitOverflowScrolling: 'touch' }}
+      {/* Understated Section End Action */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-14 flex justify-end">
+        <Link
+          to="/work"
+          className="inline-flex items-center gap-2 text-xs md:text-sm font-mono uppercase tracking-widest text-white/70 hover:text-accent-purple transition-colors font-bold group"
         >
-          {projectsData.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
-          ))}
-        </div>
-
-        {/* Pagination Dots */}
-        <div className="flex justify-center items-center gap-2.5 mt-6">
-          {projectsData.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollTo(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === index ? "bg-accent-purple w-8" : "bg-white/20 hover:bg-white/40 w-2"
-              }`}
-              aria-label={`Go to project ${index + 1}`}
-            />
-          ))}
-        </div>
+          VIEW ALL WORK <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </Link>
       </div>
     </section>
   );
 }
 
-function ProjectCard({ project, index }: { project: { title: string; url: string; image: string }, index: number }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-
+function ProjectCard({ project, isClone }: { project: ProjectItem; isClone: boolean }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 30 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, delay: index * 0.05 }}
-      className="relative flex-shrink-0 snap-center group"
+    <article
+      className="w-[300px] sm:w-[380px] md:w-[440px] flex-shrink-0 rounded-3xl glass border border-white/10 hover:border-accent-purple/50 transition-all duration-500 overflow-hidden bg-[#0a0a0a] flex flex-col group shadow-xl"
     >
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block relative rounded-3xl overflow-hidden glass border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)] hover:border-accent-purple/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.25)] transition-all duration-500 bg-[#0a0a0a]"
-      >
-        {/* Loading Skeleton */}
-        {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white/5 animate-pulse min-w-[280px] min-h-[400px]">
-            <div className="w-8 h-8 border-2 border-accent-purple border-t-transparent rounded-full animate-spin" />
-          </div>
-        )}
-
-        {/* Project Image */}
-        <div className="relative overflow-hidden">
-          <img
-            src={project.image}
-            alt={project.title}
-            loading={index <= 2 ? "eager" : "lazy"}
-            decoding="async"
-            onLoad={() => setIsLoaded(true)}
-            className={`h-[55vh] md:h-[65vh] max-h-[560px] w-auto object-contain transition-all duration-700 group-hover:scale-[1.02] ${
-              isLoaded ? "opacity-100" : "opacity-0"
-            }`}
-          />
-
-          {/* Clean Hover / Title Overlay */}
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 pt-12 flex items-center justify-between pointer-events-none">
-            <span className="text-white font-bold text-base md:text-lg tracking-tight drop-shadow-md">
-              {project.title}
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white text-xs font-medium group-hover:bg-accent-purple group-hover:border-accent-purple transition-colors">
-              Visit Live <ExternalLink size={12} />
-            </span>
-          </div>
+      {/* Browser Window Bar */}
+      <div className="bg-black/80 px-4 py-2.5 flex items-center justify-between border-b border-white/10 rounded-t-3xl">
+        <div className="flex items-center gap-1.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+          <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+          <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
         </div>
-      </a>
-    </motion.div>
+        <div className="bg-white/5 border border-white/10 rounded-full text-[10px] font-mono text-white/40 px-3 py-0.5 max-w-[180px] truncate">
+          {project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+        </div>
+        <div className="w-8" />
+      </div>
+
+      {/* Website Preview Image */}
+      <div className="relative overflow-hidden aspect-[16/10] bg-black/50 border-b border-white/5">
+        <img
+          src={project.image}
+          alt={isClone ? "" : `${project.title} website interface`}
+          loading="lazy"
+          decoding="async"
+          width={800}
+          height={500}
+          className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
+        />
+      </div>
+
+      {/* Project Meta & Information */}
+      <div className="p-6 flex flex-col justify-between flex-1">
+        <div>
+          <span className="text-accent-purple font-mono text-xs font-bold uppercase tracking-wider block mb-1">
+            {project.category}
+          </span>
+          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight group-hover:text-accent-purple transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-xs md:text-sm text-white/60 leading-relaxed mt-2 line-clamp-2">
+            {project.description}
+          </p>
+        </div>
+
+        <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
+          <Link
+            to={project.caseStudyUrl}
+            tabIndex={isClone ? -1 : 0}
+            aria-hidden={isClone}
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-white group-hover:text-accent-purple transition-colors"
+          >
+            View Case Study <ArrowUpRight size={14} />
+          </Link>
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            tabIndex={isClone ? -1 : 0}
+            aria-hidden={isClone}
+            className="text-[11px] font-mono text-white/40 hover:text-white transition-colors flex items-center gap-1"
+          >
+            Live Site <ExternalLink size={11} />
+          </a>
+        </div>
+      </div>
+    </article>
   );
 }

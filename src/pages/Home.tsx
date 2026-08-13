@@ -10,20 +10,14 @@ const corePillars = [
   {
     num: "01",
     title: "WEBSITES",
-    description: "Premium marketing, service, portfolio and commerce experiences engineered for clarity, speed and high conversion.",
-    capabilities: ["Custom UI/UX Interface Design", "Responsive Frontend Engineering", "Brand & Product Positioning", "SEO & Speed Optimization"]
+    description: "Premium marketing, service, portfolio and commerce experiences engineered for credibility, positioning and high conversion.",
+    capabilities: ["Custom UI/UX Interface Design", "Responsive Frontend Engineering", "Brand & Service Positioning", "SEO & Speed Optimization"]
   },
   {
     num: "02",
-    title: "DIGITAL PRODUCTS",
-    description: "Customer-facing web applications, portals, and interactive platforms built with intuitive user workflows.",
-    capabilities: ["Interactive Portals & Dashboards", "Design Systems & Component Libraries", "Identity & Workspace Layouts", "E-commerce Storefronts"]
-  },
-  {
-    num: "03",
     title: "CLIENT SYSTEMS",
-    description: "Structured inquiry qualification, booking calendars, CRM automation and follow-up pipelines behind the website.",
-    capabilities: ["Multi-step Project Qualification Forms", "Consultation Booking Integrations", "CRM & Email Pipeline Connections", "Automated Lead Acknowledgements"]
+    description: "Structured inquiry qualification, booking calendars, CRM automation and follow-up pipelines running behind the website.",
+    capabilities: ["Multi-step Qualification Questionnaires", "Consultation Booking Integrations", "CRM & Pipeline Connections", "Automated Lead Acknowledgements"]
   }
 ];
 
@@ -82,14 +76,14 @@ export default function Home() {
     "url": "https://benestudio.com.ng/",
     "logo": "https://i.postimg.cc/wj2PcjcG/bene-portrait-D65MEpe-D.jpg",
     "email": "hello@benestudio.com.ng",
-    "description": "Benestudio designs and builds premium websites, digital products and client systems for ambitious businesses."
+    "description": "Benestudio designs and builds premium websites and client systems for ambitious businesses."
   };
 
   return (
     <>
       <SEO
-        title="Benestudio | Premium Websites, Digital Products & Client Systems"
-        description="Benestudio designs and builds premium websites, digital products and client systems for ambitious businesses globally."
+        title="Benestudio | Premium Websites & Client Systems"
+        description="Benestudio designs and builds premium websites and client systems for ambitious businesses globally."
         canonical="https://benestudio.com.ng/"
         jsonLd={homeJsonLd}
       />
@@ -97,7 +91,7 @@ export default function Home() {
       {/* Hero Section */}
       <DemoHeroGeometric />
 
-      {/* Horizontal Rounded Projects Showcase */}
+      {/* Horizontal Continuous Work Showcase */}
       <Projects />
 
       {/* Core Positioning Pillars */}
@@ -108,29 +102,29 @@ export default function Home() {
               WHAT WE BUILD
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white mt-3 uppercase tracking-tighter">
-              Websites, Digital Products & Client Systems.
+              Websites & Client Systems.
             </h2>
             <p className="mt-4 text-base md:text-lg text-white/60 max-w-2xl">
               We design the customer-facing digital experience AND the inquiry systems behind it.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {corePillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="glass p-8 rounded-3xl border border-white/10 hover:border-accent-purple/40 transition-all flex flex-col justify-between"
+                className="glass p-8 md:p-10 rounded-3xl border border-white/10 hover:border-accent-purple/40 transition-all flex flex-col justify-between"
               >
                 <div>
                   <span className="text-accent-purple font-mono text-xs font-bold block mb-2">{pillar.num}</span>
-                  <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{pillar.title}</h3>
-                  <p className="text-sm text-white/60 leading-relaxed mb-6">{pillar.description}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">{pillar.title}</h3>
+                  <p className="text-sm md:text-base text-white/60 leading-relaxed mb-6">{pillar.description}</p>
                 </div>
                 <div>
-                  <ul className="space-y-2 text-xs font-mono text-white/70 pt-4 border-t border-white/5">
+                  <ul className="space-y-3 text-xs md:text-sm font-mono text-white/70 pt-6 border-t border-white/5">
                     {pillar.capabilities.map((cap, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <CheckCircle2 size={13} className="text-accent-purple shrink-0" />
+                      <li key={i} className="flex items-center gap-2.5">
+                        <CheckCircle2 size={15} className="text-accent-purple shrink-0" />
                         <span>{cap}</span>
                       </li>
                     ))}
@@ -232,6 +226,7 @@ export default function Home() {
                   className="glass rounded-2xl border border-white/10 overflow-hidden transition-colors"
                 >
                   <button
+                    type="button"
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
                     className="w-full text-left p-6 flex justify-between items-center gap-4 text-white font-bold text-base md:text-lg focus:outline-none"
                   >

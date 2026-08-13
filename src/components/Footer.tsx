@@ -59,7 +59,7 @@ export default function Footer() {
               Have Something <br /> Worth Building?
             </h2>
             <p className="mt-6 text-base text-white/50 max-w-sm leading-relaxed">
-              Tell us about your business or project. We design and build custom websites, digital products and client systems tailored to your goals.
+              Tell us about your business or project. We design and build custom websites and client systems tailored to your goals.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 text-xs uppercase font-mono tracking-wider text-white/50">
@@ -116,7 +116,7 @@ export default function Footer() {
                   Start Your Project
                 </h3>
                 <p className="text-sm text-white/60 leading-relaxed mb-6">
-                  Ready to launch your website, digital product or client system? Fill out our inquiry form to discuss your goals directly with Peter Benedict.
+                  Ready to launch your website or client system? Fill out our inquiry form to discuss your goals directly with Peter Benedict.
                 </p>
                 
                 <div className="space-y-3 mb-6 text-xs font-mono text-white/70 bg-black/40 p-4 rounded-xl border border-white/5">
