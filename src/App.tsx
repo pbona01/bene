@@ -11,6 +11,7 @@ import Work from "./pages/Work";
 import PlugsyCaseStudy from "./pages/PlugsyCaseStudy";
 import UBBCakesCaseStudy from "./pages/UBBCakesCaseStudy";
 import NewDreamsCaseStudy from "./pages/NewDreamsCaseStudy";
+import HappyCoffeeCaseStudy from "./pages/HappyCoffeeCaseStudy";
 import Services from "./pages/Services";
 import AboutPage from "./pages/AboutPage";
 import InteriorDesigners from "./pages/InteriorDesigners";
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/work/plugsy" element={<PlugsyCaseStudy />} />
           <Route path="/work/ubbcakes" element={<UBBCakesCaseStudy />} />
           <Route path="/work/newdreams" element={<NewDreamsCaseStudy />} />
+          <Route path="/work/happy-coffee" element={<HappyCoffeeCaseStudy />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/interior-designers" element={<InteriorDesigners />} />

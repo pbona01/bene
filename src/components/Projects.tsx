@@ -13,6 +13,15 @@ export interface ProjectItem {
 
 export const projectsData: ProjectItem[] = [
   {
+    id: "happy-coffee",
+    title: "Happy Coffee",
+    category: "CONCEPT REDESIGN / COFFEE",
+    description: "A bold editorial redesign concept celebrating Nigerian-grown coffee, local origin and modern African brand culture.",
+    image: "/happy-coffee-concept.png",
+    liveUrl: "https://happy-coffee-redesign.vercel.app/",
+    caseStudyUrl: "/work/happy-coffee",
+  },
+  {
     id: "plugsy",
     title: "Plugsy",
     category: "PLATFORM / WEBSITE",
@@ -49,10 +58,10 @@ export default function Projects() {
           SELECTED WORK
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">
-          BUILT FOR REAL BUSINESSES.
+          SELECTED DIGITAL WORK.
         </h2>
         <p className="mt-3 text-sm md:text-base text-white/60 max-w-xl font-light">
-          Selected websites we've designed for businesses across technology, fashion, food and commerce.
+          Client work and concept redesigns across technology, fashion, food and commerce.
         </p>
       </div>
 

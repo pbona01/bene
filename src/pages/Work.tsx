@@ -5,6 +5,14 @@ import SEO from "../components/SEO";
 
 const projects = [
   {
+    name: "Happy Coffee",
+    category: "Concept Redesign · Food & Beverage",
+    summary: "A self-initiated redesign concept exploring how Happy Coffee could express its Nigerian-grown story through bold editorial typography, origin-led storytelling and a more distinctive digital shopping experience.",
+    caseStudyUrl: "/work/happy-coffee",
+    liveUrl: "https://happy-coffee-redesign.vercel.app/",
+    image: "/happy-coffee-concept.png"
+  },
+  {
     name: "Plugsy",
     category: "Connected Web Platform",
     summary: "Built for creators, freelancers and service professionals needing a central hub. Benestudio designed and developed a mobile-optimized platform that unifies portfolio showcases, service details, social proof and direct contact options in one location.",
@@ -71,14 +79,14 @@ export default function Work() {
               SELECTED WORK
             </span>
             <h1 className="text-4xl md:text-7xl font-black text-white mt-4 uppercase tracking-tighter max-w-4xl">
-              Projects built around real businesses, products and audiences.
+              Digital work built around brands, products and audiences.
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
-              A selection of websites and digital experiences designed and developed by Benestudio across technology, commerce, food and fashion.
+              A selection of client work and concept redesigns by Benestudio across technology, commerce, food and fashion.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
               <motion.div
                 key={project.name}
